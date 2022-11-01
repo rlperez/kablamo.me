@@ -2,6 +2,7 @@ import * as React from "react";
 import { ChakraProvider } from "@chakra-ui/react";
 import Layout from "../components/layout";
 import { Link } from "gatsby";
+import Seo from "../components/seo";
 
 // markup
 const IndexPage = () => {
@@ -14,5 +15,7 @@ const IndexPage = () => {
     </ChakraProvider>
   );
 };
+
+export const Head = () => <Seo title="Home Page" />;
 
 export default IndexPage;
