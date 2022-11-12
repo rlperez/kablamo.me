@@ -3,7 +3,7 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Kablamo.me`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://www.kablamo.me`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -44,14 +44,6 @@ const config: GatsbyConfig = {
         path: "./src/pages/",
       },
       __key: "pages",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "articles",
-        path: "./src/articles/",
-      },
-      __key: "articles",
     },
     {
       resolve: "@chakra-ui/gatsby-plugin",

@@ -13,15 +13,17 @@ const IndexPage = ({ data }) => {
         <Link to="/about">About</Link>
         <Container>
           <h3>Articles</h3>
-          <ul>
-            {data.allMdx.nodes.map((node) => (
-              <article key={node.id}>
-                <h2>{node.frontmatter.title}</h2>
-                <p>Posted: {node.frontmatter.date}</p>
-                <p>{node.excerpt}</p>
-              </article>
-            ))}
-          </ul>
+          {data.allMdx.nodes.map((node) => (
+            <article key={node.id}>
+              <h2>
+                <Link to={`/articles/${node.frontmatter.slug}`}>
+                  {node.frontmatter.title}
+                </Link>
+              </h2>
+              <p>{node.excerpt}</p>
+              <p>Posted: {node.frontmatter.date}</p>
+            </article>
+          ))}
         </Container>
       </Layout>
     </ChakraProvider>
@@ -35,6 +37,7 @@ export const query = graphql`
         frontmatter {
           date(formatString: "MMMM D, YYYY")
           title
+          slug
         }
         id
         excerpt
