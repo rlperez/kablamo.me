@@ -46,6 +46,14 @@ const config: GatsbyConfig = {
       __key: "pages",
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "articles",
+        path: "./src/articles/",
+      },
+      __key: "articles",
+    },
+    {
       resolve: "@chakra-ui/gatsby-plugin",
       options: {
         /**
