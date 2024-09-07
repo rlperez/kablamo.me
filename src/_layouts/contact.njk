@@ -13,24 +13,25 @@ permalink: 'contact/index.html'
     </article>
   </div>
   <div class="">
-    <form method="POST" class="" id="contactSumbitBtn" action="">
-      <div class="">
+    <div class="contactFlash">
+    <form method="POST" class="" id="contactForm" action="#">
+      <div class="mt-m">
         <label for="messageName" class="block text-sm font-medium">Name</label>
-        <input type="text" class="form-input" placeholder="Your name..." required />
+        <input type="text" class="input form-input" placeholder="Your name..." required />
       </div>
       <div class="mt-m">
         <label for="messageEmail" class="block text-sm font-medium">Email</label>
-        <input type="email" class="form-input" placeholder="example@kablamo.me" required />
+        <input type="email" class="input form-input" placeholder="example@kablamo.me" required />
       </div>
       <div class="mt-m">
         <label for="messageEmail" class="block text-sm font-medium">Phone</label>
-        <input type="tel" class="form-input" placeholder="+1 (555) 555-5555" />
+        <input type="tel" class="input form-input" placeholder="+1 (555) 555-5555" />
       </div>
       <div class="mt-m">
         <label for="contactMessage" class="block text-sm font-medium">Message </label>
         <textarea
           id="contactMessage"
-          class="form-textarea"
+          class="input form-textarea"
           rows="9"
           cols="40"
           placeholder="Enter your message..."
@@ -44,11 +45,14 @@ permalink: 'contact/index.html'
           data-sitekey="7f40ec69-177d-4e67-8abb-9b61463d706b"
           data-callback="enableContactSubmit"
         ></div>
-        <button class="button rounded-full">Submit</button>
+        <button class="button mt-m" disabled>Submit</button>
       </div>
     </form>
   </div>
 </custom-masonry>
+
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+<script src="/assets/scripts/contact.js">
 <script>
   function enableContactSubmit(resp) {
     const btn = document.getElementById('contactSubmitBtn');
