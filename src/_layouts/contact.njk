@@ -6,15 +6,16 @@ permalink: 'contact/index.html'
 ---
 
 <custom-masonry layout="50-50">
-  <div class="">
+  <div>
     <article class="full | region">
       <div class="wrapper flow prose">{{ content | safe }}</div>
       sfdsdfsdfsdgxcvs
     </article>
   </div>
-  <div class="">
-    <div class="contactFlash">
+  <div>
+    <div class="contactFlash"></div>
     <form method="POST" class="" id="contactForm" action="#">
+      <div class="contactFlash"></div>
       <div class="mt-m">
         <label for="messageName" class="block text-sm font-medium">Name</label>
         <input type="text" class="input form-input" placeholder="Your name..." required />
@@ -28,7 +29,7 @@ permalink: 'contact/index.html'
         <input type="tel" class="input form-input" placeholder="+1 (555) 555-5555" />
       </div>
       <div class="mt-m">
-        <label for="contactMessage" class="block text-sm font-medium">Message </label>
+        <label for="contactMessage" class="block text-sm font-medium">Message</label>
         <textarea
           id="contactMessage"
           class="input form-textarea"
@@ -42,7 +43,7 @@ permalink: 'contact/index.html'
         <div
           id="h-captcha"
           class="h-captcha"
-          data-sitekey="7f40ec69-177d-4e67-8abb-9b61463d706b"
+          data-sitekey="{{ env.HCAPTCHA_SITE_KEY }}"
           data-callback="enableContactSubmit"
         ></div>
         <button class="button mt-m" disabled>Submit</button>
@@ -53,13 +54,13 @@ permalink: 'contact/index.html'
 
 <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 <script src="/assets/scripts/contact.js">
-<script>
-  function enableContactSubmit(resp) {
-    const btn = document.getElementById('contactSubmitBtn');
-    if (resp) {
-      btn.disabled = false;
-    } else {
-      btn.disabled = true;
+  <script>
+    function enableContactSubmit(resp) {
+      const btn = document.getElementById('contactSubmitBtn');
+      if (resp) {
+        btn.disabled = false;
+      } else {
+        btn.disabled = true;
+      }
     }
-  }
 </script>
