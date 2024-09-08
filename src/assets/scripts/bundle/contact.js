@@ -2,7 +2,7 @@ const submitContactForm = async () => {
   const form = document.getElementById('contactForm');
   const flash = document.getElementById('contactFlash');
 
-  if (!flash) console.log('contacFlash div not found', flash);
+  if (!flash) console.log('contactlash div not found', flash);
 
   const values = new URLSearchParams();
   document
