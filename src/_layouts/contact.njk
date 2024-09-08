@@ -6,17 +6,16 @@ permalink: 'contact/index.html'
 ---
 
 <custom-masonry layout="50-50">
-  <div>
-    <article class="full | region">
-      <div class="wrapper flow prose">{{ content | safe }}</div>
-      sfdsdfsdfsdgxcvs
+  <div class="">
+    <article class="full">
+      <div class="flow prose">{{ content | safe }}</div>
     </article>
   </div>
   <div>
-    <div class="contactFlash"></div>
+    <div id="contactFlash is-hidden"></div>
     <form method="POST" class="" id="contactForm" action="#">
       <div class="contactFlash"></div>
-      <div class="mt-m">
+      <div class="">
         <label for="messageName" class="block text-sm font-medium">Name</label>
         <input type="text" class="input form-input" placeholder="Your name..." required />
       </div>
@@ -53,14 +52,14 @@ permalink: 'contact/index.html'
 </custom-masonry>
 
 <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-<script src="/assets/scripts/contact.js">
-  <script>
-    function enableContactSubmit(resp) {
-      const btn = document.getElementById('contactSubmitBtn');
-      if (resp) {
-        btn.disabled = false;
-      } else {
-        btn.disabled = true;
-      }
+<script src="/assets/scripts/bundle/contact.js" async defer></script>
+<script>
+  function enableContactSubmit(resp) {
+    const btn = document.getElementById('contactSubmitBtn');
+    if (resp) {
+      btn.disabled = false;
+    } else {
+      btn.disabled = true;
     }
+  }
 </script>

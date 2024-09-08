@@ -12,7 +12,9 @@ Adjust fallbacks if modern color syntax not supported for text and bg variants. 
   --tracking: -0.05ch;
   --tracking-s: -0.075ch;
   --tracking-wide: 0.05ch;
-
+  --color-success: #62c95c;
+  --color-warn: #fbbe25;
+  --color-error: #cf4662;
   --gradient-rainbow: linear-gradient(90deg, #cf4662 10%, #fbbe25 30%, #62c95c 50%, #08bccb 75%, #a977d5 90%);
   --gradient-conic: conic-gradient(
     var(--color-primary) 0 28%,

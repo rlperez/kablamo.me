@@ -1,3 +1,5 @@
+/* Global CSS root */
+
 @import 'tailwindcss/base';
 
 @import 'base/reset.css';
