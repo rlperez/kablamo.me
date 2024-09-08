@@ -10,7 +10,6 @@ theme is available here and deserves credit for most of the hard UI work.
 [![Follow @lene@front-end.social](https://img.shields.io/mastodon/follow/109292536543732634?domain=https%3A%2F%2Ffront-end.social&style=flat-square&logo=Mastodon&logoColor=white&labelColor=%235B4BE1)](https://front-end.social/@lene)
 
 [Sites that are based on / built with Eleventy Excellent. ](https://eleventy-excellent.netlify.app/built-with/)
-Add your site by submitting a pull request! :)
 
 ## Development
 
