@@ -29,9 +29,9 @@ window.onload = () => {
   darkThemeToggle.setAttribute('aria-pressed', theme.value === 'dark');
 
   if (theme.value === 'dark') {
-    toggleDisplay(darkThemeToggle);
-  } else {
     toggleDisplay(lightThemeToggle);
+  } else {
+    toggleDisplay(darkThemeToggle);
   }
 };
 
@@ -44,7 +44,11 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', ({m
 
 const toggleDisplay = target => {
   if (!target) return;
-  target.style.display = target.style.display == 'none' ? 'block' : 'none';
+  if (target.classList.contains('is-hidden')) {
+    target.classList.remove('is-hidden');
+  } else {
+    target.classList.add('is-hidden');
+  }
 };
 
 function onClick(themeValue) {
