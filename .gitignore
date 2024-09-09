@@ -13,3 +13,4 @@ src/_includes/scripts
 .env
 .envrc
 .vercel
+.env*.local

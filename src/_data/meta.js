@@ -1,4 +1,6 @@
-export const url = process.env.URL || 'http://localhost:8080';
+export const url =
+  (process.env.STAGE === 'prod' ? process.env.VERCEL_PROJECT_PRODUCTION_URL : process.env.VERCEL_URL) ||
+  'http://localhost:8080';
 export const siteName = 'Kablamo!';
 export const siteDescription = '';
 export const siteType = 'Person'; // schema
