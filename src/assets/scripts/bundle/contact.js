@@ -1,3 +1,12 @@
+const enableContactSubmit = resp => {
+  const btn = document.getElementById('contactSubmitBtn');
+  if (resp) {
+    btn.disabled = false;
+  } else {
+    btn.disabled = true;
+  }
+};
+
 const submitContactForm = async () => {
   const form = document.getElementById('contactForm');
   const flash = document.getElementById('contactFlash');
