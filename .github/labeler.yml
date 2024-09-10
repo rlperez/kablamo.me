@@ -1,0 +1,18 @@
+---
+Posts:
+  - changed-files:
+      - any-glob-to-any-file: 'docs/**/*.md'
+Source:
+  - all:
+      - changed-files:
+          - any-glob-to-any-file: 'src/**/*'
+          - all-globs-to-all-files: '!src/posts/**/*'
+          - all-globs-to-all-files: '!src/assets/**/*'
+Assets:
+  - changed-files:
+      - any-glob-to-any-file: 'src/assets/**/*'
+Favicon:
+  - changed-files:
+      - any-glob-to-any-file: 'src/assets/favicons/*.svg'
+Release:
+  - base-branch: 'master'

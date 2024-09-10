@@ -1,4 +1,13 @@
-export const url = process.env.URL || 'http://localhost:8080';
+export const url = (() => {
+  switch (process.env.STAGE) {
+    case 'prod':
+      return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+    case 'staging':
+      return `https://${process.env.VERCEL_URL}`;
+    case 'dev':
+      return 'http://localhost:8080';
+  }
+})();
 export const siteName = 'Kablamo!';
 export const siteDescription = '';
 export const siteType = 'Person'; // schema
