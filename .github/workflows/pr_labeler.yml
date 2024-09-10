@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build:
+  label:
     permissions:
       contents: read
       pull-requests: write
