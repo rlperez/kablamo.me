@@ -14,6 +14,7 @@ import {htmlConfig} from './plugins/html-config.js';
 // Custom template language
 import {cssConfig} from './plugins/css-config.js';
 import {jsConfig} from './plugins/js-config.js';
+import {rssConfig} from './plugins/rss-config.js';
 
 export default {
   EleventyRenderPlugin,
@@ -21,8 +22,9 @@ export default {
   syntaxHighlight,
   webc,
   markdownLib,
-	drafts,
+  drafts,
   htmlConfig,
   cssConfig,
-  jsConfig
+  jsConfig,
+  rssConfig
 };

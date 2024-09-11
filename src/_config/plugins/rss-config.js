@@ -1,7 +1,7 @@
 import {feedPlugin} from '@11ty/eleventy-plugin-rss';
-import {url} from '../../_data/meta';
+import {url} from '../../_data/meta.js';
 
-export default function (eleventyConfig) {
+export const rssConfig = eleventyConfig => {
   eleventyConfig.addPlugin(feedPlugin, {
     type: 'atom', // or "rss", "json"
     outputPath: '/feed.xml',
@@ -21,4 +21,4 @@ export default function (eleventyConfig) {
       }
     }
   });
-}
+};
