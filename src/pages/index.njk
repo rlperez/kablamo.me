@@ -29,13 +29,13 @@ blog:
     </div>
   </article>
 
-  {% if collections.allPosts.length  %}
+  {% if collections.allPosts.length %}
   <section class="full | region">
     <div class="wrapper flow prose">
       <h2>{{ blog.title }}</h2>
       <!-- blog intro text is optional. -->
 
-      {% if blog.intro %}
+      {% if blog.intro and collections.allPosts.length > 4 %}
         <p><a href="/blog">{{ blog.intro }}</a></p>
       {% endif %}
 
@@ -43,10 +43,10 @@ blog:
         <custom-masonry layout="50-50">
           <!-- loop posts -->
           {% set itemList = collections.allPosts %}
-					{% asyncEach item in itemList.slice(0, 4) %}
-						{% set definedDate = item.date %}
-						{% include "partials/card-blog.njk" %}
-					{% endeach %}
+          {% asyncEach item in itemList.slice(0, 4) %}
+            {% set definedDate = item.date %}
+            {% include "partials/card-blog.njk" %}
+          {% endeach %}
         </custom-masonry>
       </div>
     </div>
