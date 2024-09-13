@@ -64,15 +64,6 @@ function onClick(themeValue) {
   toggleDisplay(darkToggle);
   toggleDisplay(lightToggle);
 
-  if (window.CUSDIS) {
-    window.CUSDIS.setTheme(themeValue);
-  }
-
-  const hcaptcha = document.getElementById('h-captcha');
-  if (hcaptcha) {
-    hcaptcha.setAttribute('data-theme', themeValue);
-  }
-
   setPreference();
   updateMetaThemeColor();
 }
@@ -93,8 +84,15 @@ function setPreference() {
 
 function reflectPreference() {
   document.firstElementChild.setAttribute('data-theme', theme.value);
-  // document.querySelector('#light-theme-toggle')?.setAttribute('aria-label', lightLabel);
-  // document.querySelector('#dark-theme-toggle')?.setAttribute('aria-label', darkLabel);
+
+  const hcaptcha = document.getElementById('h-captcha');
+  if (hcaptcha) {
+    hcaptcha.setAttribute('data-theme', theme.value);
+  }
+
+  if (window.CUSDIS) {
+    window.CUSDIS.setTheme(theme.value);
+  }
 }
 
 function updateMetaThemeColor() {
