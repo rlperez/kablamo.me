@@ -9,7 +9,8 @@ export const url = (() => {
   }
 })();
 export const siteName = 'Kablamo!';
-export const siteDescription = '';
+export const siteDescription =
+  'A personal blog dedicated to sharing my programming projects, examples, news, and other oddities in technology.';
 export const siteType = 'Person'; // schema
 export const locale = 'en_EN';
 export const lang = 'en';
