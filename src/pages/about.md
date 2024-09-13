@@ -13,7 +13,7 @@ I am a web developer with going on {{ yearsExperience() }} years experience in t
 
 ### Personal
 
-I was born in north Jersey but raised mostly in rural Delaware. When faced with tuition I couldn't afford I leaned on my success in JROTC choosing to join the Air Force. After serving six years maintaining avionics systems on F-16s the next step was attending college. Which is how we are here now. Living in rural Pennsylvania.
+I was born in north Jersey but raised mostly in rural Delaware. Technology and tinkering were pretty normal. Wether it was fiddling with a Commodore 64, making pages for my Quake Team Fortress clan, or cobbling together a fuel injection system from junkyard parts for my first car. When faced with tuition I couldn't afford I leaned on my success in JROTC choosing to join the Air Force. After serving six years [maintaining avionics systems](https://mosdb.com/air-force/2A3X2/mos/1642) on [F-16s](https://www.lockheedmartin.com/en-us/products/f-16.html) the next step was attending college. Which is how we are here now. Living in rural Pennsylvania.
 
 Besides spending time with my family I try to stay busy. In my spare time sometimes I am out on my KLR 650 looking for a new trail, wrenching on my car, building something in the workshop, or playing with my two dogs (Gertrude and Mille).
 
