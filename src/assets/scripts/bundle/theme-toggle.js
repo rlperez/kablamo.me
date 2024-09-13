@@ -62,6 +62,10 @@ function onClick(themeValue) {
   toggleDisplay(darkToggle);
   toggleDisplay(lightToggle);
 
+  if (window.CUSDIS) {
+    window.CUSDIS.setTheme(themeValue);
+  }
+
   setPreference();
   updateMetaThemeColor();
 }
