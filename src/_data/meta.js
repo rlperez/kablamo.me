@@ -17,7 +17,7 @@ export const lang = 'en';
 export const skipContent = 'Skip to content';
 export const author = {
   name: 'Rigoberto L. Perez',
-  avatar: '/icon-512x512.png',
+  avatar: '/assets/images/blog/rlp-avatar.jpg',
   email: 'rlperez@kablamo.me',
   website: 'https://kablamo.me'
 };
@@ -28,11 +28,11 @@ export const creator = {
   social: 'https://github.io/rlperez'
 };
 export const pathToSvgLogo = 'src/assets/svg/misc/logo.svg'; // used for favicon generation
-export const themeColor = '#DD4462'; //  Manifest: defines the default theme color for the application
-export const themeBgColor = '#FBFBFB'; // Manifest: defines a placeholder background color for the application page to display before its stylesheet is loaded
+export const themeColor = '#ff4500'; //  Manifest: defines the default theme color for the application
+export const themeBgColor = '#3e3e3e'; // Manifest: defines a placeholder background color for the application page to display before its stylesheet is loaded
 export const opengraph_default = '/assets/images/template/opengraph-default.jpg'; // fallback/default meta image
 export const opengraph_default_alt =
-  "Visible content: An Eleventy starter with CUBE CSS, Cube CSS, Every Layout, Design Tokens and Tailwind for uitility classes. A workflow for building modern and resilient websites, introduced by Andy Bell's project buildexcellentwebsit.es"; // alt text for default meta image"
+  'Visible content: An intro meta image to a blog entry about programming, technology, and news.'; // alt text for default meta image"
 export const blog = {
   // RSS feed
   name: siteName,
