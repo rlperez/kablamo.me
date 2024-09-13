@@ -17,13 +17,14 @@ permalink: 'blog/{% if pagination.pageNumber >=1 %}page-{{ pagination.pageNumber
     {% svg "divider/edgy", null, "seperator" %}
   </header>
 
+  <div class="mt-xl" >
   <custom-masonry layout="50-50">
     {% asyncEach item in pagination.items %}
       {% set definedDate = item.date %}
       {% include "partials/card-blog.njk" %}
     {% endeach %}
   </custom-masonry>
-
+  </div>
   <!-- set collection to paginate -->
   {% set collectionToPaginate = collections.posts %}
   <!-- set target pagination settings in meta.js -->
