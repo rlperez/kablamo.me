@@ -40,7 +40,7 @@
     {% include "head/meta-info.njk" %}
   </head>
 
-  <body class="{{ layout }}">
+  <body class="{{ layout }} is-hidden">
     {% include "partials/header.njk" %}
 
     <main id="main" class="flow">{{ content | safe }}</main>

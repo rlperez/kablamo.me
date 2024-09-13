@@ -19,9 +19,6 @@ window.onload = () => {
     return;
   }
 
-  reflectPreference();
-  updateMetaThemeColor();
-
   lightThemeToggle.addEventListener('click', () => onClick('light'));
   darkThemeToggle.addEventListener('click', () => onClick('dark'));
 
@@ -33,6 +30,11 @@ window.onload = () => {
   } else {
     toggleDisplay(darkThemeToggle);
   }
+
+  reflectPreference();
+  updateMetaThemeColor();
+
+  document.querySelector('body').classList.remove('is-hidden');
 };
 
 // sync with system changes
