@@ -39,12 +39,14 @@ permalink: 'contact/index.html'
         ></textarea>
       </div>
       <div class="mt-m">
-        <h-captcha
-          id="h-captcha"
-          site-key="{{ env.HCAPTCHA_SITE_KEY }}"
-          size="normal"
-          tabindex="0"
-        ></h-captcha>
+        <p>
+          <h-captcha
+            id="h-captcha"
+            site-key="{{ env.HCAPTCHA_SITE_KEY }}"
+            size="normal"
+            tabindex="0"
+          ></h-captcha>
+        </p>
         <button class="button mt-m" id="contactSubmitBtn" disabled>Submit</button>
       </div>
     </form>
@@ -52,3 +54,4 @@ permalink: 'contact/index.html'
 </custom-masonry>
 
 <script src="/assets/scripts/bundle/contact.js" async defer></script>
+<script src="/assets/scripts/bundle/hcaptcha/index.min.js"></script>

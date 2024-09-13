@@ -68,6 +68,11 @@ function onClick(themeValue) {
     window.CUSDIS.setTheme(themeValue);
   }
 
+  const hcaptcha = document.getElementById('h-captcha');
+  if (hcaptcha) {
+    hcaptcha.setAttribute('data-theme', themeValue);
+  }
+
   setPreference();
   updateMetaThemeColor();
 }

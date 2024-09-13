@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const flash = document.getElementById('contactFlash');
     flash.classList.add('is-danger');
-    flash.innerHTML = 'An error occurred verifying your captcha! Please try again later.';
+    flash.innerHTML = 'An error occurred verifying your captcha! Please reload and try again later.';
   });
 
   const form = document.getElementById('contactForm');
