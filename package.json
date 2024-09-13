@@ -12,17 +12,13 @@
   "scripts": {
     "clean": "rimraf dist src/_includes/css src/_includes/scripts",
     "favicons": "bun ./src/_config/setup/generate-favicons.js",
-    "screenshots": "bun ./src/_config/setup/generate-screenshots.js",
     "dev:clean": "rimraf src/assets/og-images",
     "dev:11ty": "cross-env ELEVENTY_ENV=development eleventy --serve --watch",
     "build:11ty": "cross-env ELEVENTY_ENV=production eleventy",
     "start": "run-p dev:*",
     "build": "run-s clean build:*"
   },
-  "keywords": [
-    "blog",
-    "11ty"
-  ],
+  "keywords": ["blog", "11ty"],
   "repository": {
     "type": "git",
     "url": "https://github.com/rlperez/rlperez.github.io.git"
