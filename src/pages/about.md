@@ -13,9 +13,9 @@ I am a web developer with going on {{ yearsExperience() }} years experience in t
 
 ### Personal
 
-I was born in north Jersey but raised mostly in rural Delaware. When faced with a college acceptance letter and an unfathomable tuition or my other options I chose to look elsewhere. In high school the thing I had excelled to the top level was JROTC so my choice ended up joining the Air Force. After serving six years maintaining avionics systems on F-16s the next step was attending college. Which is how we are here now. Living in rural Pennsylvania.
+I was born in north Jersey but raised mostly in rural Delaware. When faced with tuition I couldn't afford I leaned on my success in JROTC choosing to join the Air Force. After serving six years maintaining avionics systems on F-16s the next step was attending college. Which is how we are here now. Living in rural Pennsylvania.
 
-Besides spending time with my family I try to stay busy. In my spare time sometimes I am out on my KLR 650 looking for a new trail. Or perhaps working on my car. Maybe tending to the garden. Building things out of wood perhaps. When I am not doing those things I tend to be dabbling with solutions to my day to day tasks.
+Besides spending time with my family I try to stay busy. In my spare time sometimes I am out on my KLR 650 looking for a new trail, wrenching on my car, building something in the workshop, or playing with my two dogs (Gertrude and Mille).
 
 ## About the Site
 
