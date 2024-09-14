@@ -25,7 +25,7 @@ import plugins from './src/_config/plugins.js';
 import shortcodes from './src/_config/shortcodes.js';
 
 export default async function (eleventyConfig) {
-  eleventyConfig.addWatchTarget('./src/assets/**/*.{css,js,svg,png,jpeg}');
+  eleventyConfig.addWatchTarget('./src/assets/**/*.{css,js,svg,png,jpeg,jpg}');
   eleventyConfig.addWatchTarget('./src/_includes/**/*.{webc}');
   eleventyConfig.addGlobalData('env', process.env);
 
@@ -93,7 +93,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     // -- to root
     'src/assets/images/favicon/*': '/',
-
+    'node_modules/@hcaptcha/vanilla-hcaptcha/dist/*': 'assets/scripts/bundle/hcaptcha/',
     // -- node_modules
     'node_modules/lite-youtube-embed/src/lite-yt-embed.{css,js}': `assets/components/`
   });

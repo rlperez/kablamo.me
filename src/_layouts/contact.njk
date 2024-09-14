@@ -33,23 +33,25 @@ permalink: 'contact/index.html'
           id="contactMessage"
           class="input form-textarea"
           rows="9"
-          cols="40"
+          cols="32"
           placeholder="Enter your message..."
           required
         ></textarea>
       </div>
       <div class="mt-m">
-        <div
-          id="h-captcha"
-          class="h-captcha"
-          data-sitekey="{{ env.HCAPTCHA_SITE_KEY }}"
-          data-callback="enableContactSubmit"
-        ></div>
-        <button class="button mt-m" disabled>Submit</button>
+        <p>
+          <h-captcha
+            id="h-captcha"
+            site-key="{{ env.HCAPTCHA_SITE_KEY }}"
+            size="normal"
+            tabindex="0"
+          ></h-captcha>
+        </p>
+        <button class="button mt-m" id="contactSubmitBtn" disabled>Submit</button>
       </div>
     </form>
   </div>
 </custom-masonry>
 
-<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 <script src="/assets/scripts/bundle/contact.js" async defer></script>
+<script src="/assets/scripts/bundle/hcaptcha/index.min.js"></script>

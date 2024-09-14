@@ -1,15 +1,7 @@
-const enableContactSubmit = resp => {
-  const btn = document.getElementById('contactSubmitBtn');
-  if (resp) {
-    btn.disabled = false;
-  } else {
-    btn.disabled = true;
-  }
-};
-
 const submitContactForm = async () => {
   const form = document.getElementById('contactForm');
   const flash = document.getElementById('contactFlash');
+  const btn = document.getElementById('contactSubmitBtn');
 
   if (!flash) console.log('contactlash div not found', flash);
 
@@ -34,6 +26,7 @@ const submitContactForm = async () => {
   if (response && response.status === 200) {
     flash.classList.add('is-primary');
     flash.innerHTML = 'Message successfully sent!';
+    btn.disabled = true;
   } else {
     flash.classList.add('is-danger');
     flash.innerHTML = 'An error occurred sending message! Please try again later.';
@@ -43,6 +36,24 @@ const submitContactForm = async () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  const hcaptcha = document.getElementById('h-captcha');
+
+  hcaptcha.addEventListener('verified', e => {
+    console.log('verified event', {token: e.token});
+    const btn = document.getElementById('contactSubmitBtn');
+    btn.disabled = false;
+  });
+
+  hcaptcha.addEventListener('error', e => {
+    console.log('error event', {error: e.error});
+    const btn = document.getElementById('contactSubmitBtn');
+    btn.disabled = true;
+
+    const flash = document.getElementById('contactFlash');
+    flash.classList.add('is-danger');
+    flash.innerHTML = 'An error occurred verifying your captcha! Please reload and try again later.';
+  });
+
   const form = document.getElementById('contactForm');
   form.addEventListener('submit', e => {
     e.preventDefault();
