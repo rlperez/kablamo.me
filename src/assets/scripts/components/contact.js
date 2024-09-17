@@ -1,8 +1,27 @@
+const showFlash = (flash, message, cssClass) => {
+  flash.classList.add(cssClass);
+  flash.innerHtml = message;
+  flash.classList.remove('is-hidden');
+  setTimeout(() => {
+    flash.classList.add('is-hidden');
+    flash.classList.remove(cssClass);
+  }, 10000);
+};
+
 document.addEventListener('DOMContentLoaded', () => {
+  const hcaptcha = document.getElementById('h-captcha');
+
   const submitContactForm = async () => {
     const form = document.getElementById('contactForm');
     const flash = document.getElementById('contactFlash');
     const btn = document.getElementById('contactSubmitBtn');
+    const hcaptchaToken = hcaptcha.getAttribute('data-token');
+
+    if (!hcaptchaToken) {
+      flash.classList.add('is-danger');
+      flash.innerHTML = 'An error occurred sending message! Please try again later.';
+    }
+
     btn.setAttribute('disabled', '');
 
     if (!flash) console.log('contactFlash div not found', flash);
@@ -11,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document
       .querySelectorAll('#contactForm .input')
       .forEach(element => values.append(element.id, element.value));
-    values.append('h-captcha-response', hcaptcha.getResponse());
+    values.append('hcaptchaResponse', hcaptchaToken);
 
     console.error(values);
 
@@ -22,28 +41,28 @@ document.addEventListener('DOMContentLoaded', () => {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     })
-      .then(response => response.json())
+      .then(response => {
+        console.log('Form submission response', response.body);
+        console.log('Form json', JSON.stringify(response.body ?? {}));
+        return response.json();
+      })
       .catch(error => {
         console.error('Error:', error);
       });
 
     if (response && response.status === 200) {
-      flash.classList.add('is-primary');
-      flash.innerHTML = 'Message successfully sent!';
+      showFlash(flash, 'Message successfully sent!', 'is-primary');
     } else {
-      flash.classList.add('is-danger');
-      flash.innerHTML = 'An error occurred sending message! Please try again later.';
-      btn.removeAttribute('disabled');
+      setTimeout(() => {
+        btn.removeAttribute('disabled');
+      }, 5000);
+      showFlash(flash, 'An error occurred sending message! Please try again later.', 'is-danger');
     }
-
-    flash.classList.remove('is-hidden');
   };
 
-  const hcaptcha = document.getElementById('h-captcha');
-
   hcaptcha.addEventListener('verified', e => {
-    console.log('verified event', {token: e.token});
     const btn = document.getElementById('contactSubmitBtn');
+    hcaptcha.dataset.token = e.token;
     btn.removeAttribute('disabled');
   });
 
