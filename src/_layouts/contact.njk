@@ -14,18 +14,24 @@ permalink: 'contact/index.html'
   <div>
     <div id="contactFlash is-hidden"></div>
     <form method="POST" class="" id="contactForm" action="/api/contact">
-      <div class="contactFlash"></div>
+      <div id="contactFlash"></div>
       <div class="">
-        <label for="messageName" class="block text-sm font-medium">Name</label>
-        <input type="text" class="input form-input" placeholder="Your name..." required />
+        <label for="contactName" class="block text-sm font-medium">Name</label>
+        <input id="contactName" type="text" class="input form-input" placeholder="Your name..." required />
       </div>
       <div class="mt-m">
-        <label for="messageEmail" class="block text-sm font-medium">Email</label>
-        <input type="email" class="input form-input" placeholder="example@kablamo.me" required />
+        <label for="contactEmail" class="block text-sm font-medium">Email</label>
+        <input
+          id="contactEmail"
+          type="email"
+          class="input form-input"
+          placeholder="example@kablamo.me"
+          required
+        />
       </div>
       <div class="mt-m">
-        <label for="messageEmail" class="block text-sm font-medium">Phone</label>
-        <input type="tel" class="input form-input" placeholder="+1 (555) 555-5555" />
+        <label for="contactPhone" class="block text-sm font-medium">Phone (optional)</label>
+        <input id="contactPhone" type="tel" class="input form-input" placeholder="+1 (555) 555-5555" />
       </div>
       <div class="mt-m">
         <label for="contactMessage" class="block text-sm font-medium">Message</label>
