@@ -6,6 +6,7 @@ tags: ['image', 'feature']
 image: './src/assets/images/gallery/asturias-1.jpg'
 alt: 'A picturesque valley showcasing majestic mountains and lush forests, creating a serene and captivating landscape'
 credit: Lene took this photo.
+draft: true
 ---
 
 This starter uses Eleventy's build-time image transformations.
