@@ -20,11 +20,4 @@ export const drafts = eleventyConfig => {
       return data.eleventyExcludeFromCollections ?? false;
     };
   });
-
-  eleventyConfig.on('eleventy.before', ({runMode}) => {
-    // Set the environment variable
-    if (runMode === 'serve' || runMode === 'watch') {
-      process.env.BUILD_DRAFTS = true;
-    }
-  });
 };
