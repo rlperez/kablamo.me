@@ -1,5 +1,6 @@
 import {verify} from 'hcaptcha';
 import {MailerSend, EmailParams, Sender, Recipient} from 'mailersend';
+import {getClientIp} from 'request-ip';
 
 async function verifyCaptcha(localAddress, hcaptcha_response) {
   const hcaptcha_site_key = process.env.HCAPTCHA_SITE_KEY;
@@ -68,15 +69,16 @@ async function sendMail(request) {
 export default async function handler(request, response) {
   const hcaptcha_response = request?.body['hcaptchaResponse'];
   console.trace('Contact Request', {body: request.body});
-  const verify_response = await verifyCaptcha(request.socket.localAddress, hcaptcha_response);
+  const ipAddress = getClientIp(request);
+  const verify_response = await verifyCaptcha(ipAddress, hcaptcha_response);
 
   if (verify_response.status === 200) {
     const result = await sendMail(request.body);
-    if (result.statusCode === 200 || result.statusCode === 204) {
+    if (result.statusCode >= 200 || result.statusCode <= 299) {
       console.log({info});
       return response.status(200).json({body: {message: 'Email successful sent'}});
     } else {
-      console.error({request: request.body, result, err});
+      console.error({request: request.body, result});
       return response.status(500).json({
         body: {
           status: response.statusCode,
