@@ -87,7 +87,7 @@ function reflectPreference() {
 
   const hcaptcha = document.getElementById('h-captcha');
   if (hcaptcha) {
-    hcaptcha.setAttribute('data-theme', theme.value);
+    hcaptcha.dataset.theme = theme.value;
   }
 
   if (window.CUSDIS) {
