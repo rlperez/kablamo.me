@@ -33,8 +33,8 @@ export const imageShortcode = async (
   alt = '',
   caption = '',
   loading = 'lazy',
-  className,
-  sizes = '90vw',
+  className = 'responsiveImage',
+  sizes = '(max-height: 100vh) 90vw',
   widths = [440, 650, 960, 1200],
   formats = ['avif', 'webp', 'jpeg']
 ) => {
@@ -69,13 +69,13 @@ export const imageShortcode = async (
     })
     .join('\n');
 
-  const imgageAttributes = stringifyAttributes({
-    src: lowsrc.url,
-    width: lowsrc.width,
-    height: lowsrc.height,
+  const imageAttributes = stringifyAttributes({
+    'src': lowsrc.url,
+    'max-height': '100%',
+    'max-width': '100%',
     alt,
     loading,
-    decoding: loading === 'eager' ? 'sync' : 'async'
+    'decoding': loading === 'eager' ? 'sync' : 'async'
   });
 
   const imageElement = caption
@@ -83,14 +83,14 @@ export const imageShortcode = async (
 				<picture>
 					${imageSources}
 					<img
-					${imgageAttributes}>
+					${imageAttributes}>
 				</picture>
 				<figcaption>${caption}</figcaption>
 			</figure>`
     : `<picture slot="image" class="flow ${className ? `${className}` : ''}">
 				${imageSources}
 				<img
-				${imgageAttributes}>
+				${imageAttributes}>
 			</picture>`;
 
   return htmlmin.minify(imageElement, {collapseWhitespace: true});
