@@ -43,7 +43,7 @@ export const imageShortcode = async (
     formats: [...formats],
     urlPath: '/assets/images/',
     outputDir: './dist/assets/images/',
-    filenameFormat: (id, src, width, format, options) => {
+    filenameFormat: (_id, src, width, format, _options) => {
       const extension = path.extname(src);
       const name = path.basename(src, extension);
       return `${name}-${width}w.${format}`;
