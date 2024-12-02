@@ -1,6 +1,6 @@
 {
   "name": "eleventy-excellent",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Personal developer blog based on the eleventy-excellent theme.",
   "author": "Rigoberto L. Perez",
   "license": "ISC",
@@ -18,10 +18,7 @@
     "start": "run-p dev:*",
     "build": "run-s clean build:*"
   },
-  "keywords": [
-    "blog",
-    "11ty"
-  ],
+  "keywords": ["blog", "11ty"],
   "repository": {
     "type": "git",
     "url": "https://github.com/rlperez/rlperez.github.io.git"
