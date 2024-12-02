@@ -14,7 +14,7 @@ tags: ['review', 'trackball', 'gameball' ]
 
 {% image "./src/assets/images/blog/BlackBall-WhiteBackground1a.webp", "GameBall original trackball", "Stock image from gamingtrackball.com of an original GameBall."%}
 
-The GameBall trackball claims to bring gaming-grade performance to the niche world of trackballs. But does it deliver? With features like a 1000 Hz polling rate, adjustable DPI (400-3000), ceramic bearings, and an ambidextrous design, it aims to stand out. At $136, it competes with some of the best gaming mice, such as the [Razer DeathAdder V3 Pro](https://www.amazon.com/dp/B0B6XZLNHQ?tag=georiot-us-default-20&geniuslink=true) or [Logitech G Pro X Superlight 2](https://www.amazon.com/Logitech-Superlight-Lightspeed-Lightweight-Programmable/dp/B09NBWL8J5/). Let’s dive into the details.
+The [GameBall](https://www.gamingtrackball.com/products/gameball-standard-edition-black-ball) trackball claims to bring gaming-grade performance to the niche world of trackballs. But does it deliver? With features like a 1000 Hz polling rate, adjustable DPI (400-3000), ceramic bearings, and an ambidextrous design, it aims to stand out. At $136, it competes with some of the best gaming mice, such as the [Razer DeathAdder V3 Pro](https://www.amazon.com/dp/B0B6XZLNHQ?tag=georiot-us-default-20&geniuslink=true) or [Logitech G Pro X Superlight 2](https://www.amazon.com/Logitech-Superlight-Lightspeed-Lightweight-Programmable/dp/B09NBWL8J5/). Let’s dive into the details.
 
 ## The Good
 * Performance meets expectations
