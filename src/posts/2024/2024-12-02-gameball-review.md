@@ -1,8 +1,8 @@
 ---
 title: GameBall Gaming Trackball Review
 description: A premium priced trackball that doesn't live up.
-date: 2024-12-03
-draft: true
+date: 2024-12-02
+draft: false
 tags: ['review', 'trackball', 'gameball' ]
 ---
 
