@@ -1,7 +1,7 @@
 ---
 title: GameBall Gaming Trackball Review
 description: A premium priced trackball that doesn't live up.
-date: 2024-11-28
+date: 2024-12-02
 draft: true
 tags: ['review', 'trackball', 'gameball' ]
 ---
@@ -10,22 +10,21 @@ tags: ['review', 'trackball', 'gameball' ]
 
 ## Introduction
 
-> GameBall  is the world’s first trackball mouse developed specifically for the computer gamer. It's unique design, gaming specific features and high-end components distinguish it from all other trackballs on the market today.
+> GameBall is the world’s first trackball mouse developed specifically for the computer gamer. It's unique design, gaming specific features and high-end components distinguish it from all other trackballs on the market today.
 
 {% image "./src/assets/images/blog/BlackBall-WhiteBackground1a.webp", "GameBall original trackball", "Stock image from gamingtrackball.com of an original GameBall."%}
 
-So says the claim, but does it? For the GameBall original you get a trackball with a 1000 Hz polling rate, adjustable DPI (400-3000), ceramic bearings, and an ambidextrous shape with swappable buttons. The PixArt sensor and stats are rather unimpressive in the market of gaming mice however this is about the best in the trackball market. The usage is different between moving a mouse on a mat versus a ball rolling on a controlled environment so it may not be best to make a raw stats comparison. At $136 currently, places it around the price of a [Razer DeathAdder V3 Pro](https://www.amazon.com/dp/B0B6XZLNHQ?tag=georiot-us-default-20&geniuslink=true) or [Logitech G Pro X Superlight 2](https://www.amazon.com/Logitech-Superlight-Lightspeed-Lightweight-Programmable/dp/B09NBWL8J5/). It comes with multiple colored LED options, a swappable ball, and two touchpad scroll sections to round out the British made package.
+The GameBall trackball claims to bring gaming-grade performance to the niche world of trackballs. But does it deliver? With features like a 1000 Hz polling rate, adjustable DPI (400-3000), ceramic bearings, and an ambidextrous design, it aims to stand out. At $136, it competes with some of the best gaming mice, such as the [Razer DeathAdder V3 Pro](https://www.amazon.com/dp/B0B6XZLNHQ?tag=georiot-us-default-20&geniuslink=true) or [Logitech G Pro X Superlight 2](https://www.amazon.com/Logitech-Superlight-Lightspeed-Lightweight-Programmable/dp/B09NBWL8J5/). Let’s dive into the details.
 
 ## The Good
 * Performance meets expectations
 * Can swap some buttons without installing software
 
 ### Performance meets expections
-I can't complain. The sensor was perfectly acceptable and have used it in mice so it was not a surprise. The ball itself operated pretty smoothly with just getting a little bit of grease on it. The buttons don't exhibit and bounce. On the right side there is an instant DPI toggle switch which was nice while trying to snipe in FPS games which never missed a click. There were a few issues but they were more about placement such as the LED color button which is impossible to not accidentally hit.
+The GameBall offers smooth operation, and its PixArt sensor performs adequately—especially given the trackball context. While not groundbreaking compared to gaming mice, it’s among the best in the trackball market. The ball rolls effortlessly, thanks to ceramic bearings, and the buttons are responsive without noticeable bounce. A convenient DPI toggle switch is located on the right side, making it easy to adjust sensitivity on the fly—perfect for precision tasks like sniping in FPS games.
 
 ### Can swap some buttons without installing software
-This is a great feature in general. It would be especially useful for those that look to use it on a non-Windows computer. When I was initially adjusting to the ergonomics it was also helpful to shift them around as I couldn't get the grip of keeping my hand stable while clicking buttons with my hand resting the way I wanted. Eventually, I sorted it out and I swapped things back to the default settings.
-
+This feature is particularly useful for non-Windows users or those who prefer not to install additional software. Adjusting button placements during my initial use helped me find a comfortable grip. Once I acclimated to the ergonomics, I returned the buttons to their default settings.
 
 ## The Bad
 * Hard to get comfortable
@@ -34,7 +33,7 @@ This is a great feature in general. It would be especially useful for those that
 * Loud
 
 ### Hard to get comfortable
-The ambidextrous design is great in theory but never left me feeling like my hand was quite in the right place. Really, it's more of a cost cutting measure so that if they want left handed people buying them they don't need a second shell. People don't typically swap back and forth so what happens in the compromise is neither is ultimately the most comfortable they could be.
+The ambidextrous design is great in theory but never left my hand feeling quite in the right place. This would seem to be a cost cutting measure to avoid making a lefthand version of the shell. It is uncommon to swap back and forth leaving a compromise neither the most comfortable they could be.
 
 ### Had to install new firmware for it to work
 This is in part my problem as I am a Linux user. Linux is not on their supported operating systems however there is little reason a pointing device in today's day and age to not be platform agnostic for its core functionality. Especially as a USB device. This required me to navigate through their page and clumsily dip through PDF for each release to find a link to the firmware. Finding the previous version, that due to a typo in version number, the program seems to think it's newer than the one on the mouse already. Either way it let me install it which gave me Linux functionality. After I found a Windows computer to run the installer, a problem that Mac users will also face if they wish to update their GameBall's firmware.
@@ -43,12 +42,12 @@ This is in part my problem as I am a Linux user. Linux is not on their supported
 You better really want a trackball, but if you do, it may be worth it. Pound for pound just about any $40 mouse will match or exceed this device. The reality is that most people won't use a mouse in such a way to ever really utilize the sensitive sensors of today. The sampling rate of 1000Hz is enough into the sweet spot for high dpi 4k screens and still responding well enough for fast paced game play. The other trackballs with this capability are similarly priced with the L-Trac which is currently $160 and the Ploopy Classic currently $149 with the USD/CAD exchange rate.
 
 ### Loud
-I personally don't mind however these buttons click extremely loud compared to my other mice. The noise was significant enough that I debated swapping them out since I have spare switches for my own trackball [project](/blog/diy-trackball-or-why-parts-so-far).
+Many won't mind, however these buttons click extremely loud compared to other mice that I have owned. The noise was significant enough that I debated swapping them out since I have spare switches for my own [trackball project](/blog/diy-trackball-or-why-parts-so-far).
 
 ## The Ugly
 * Didn't last even 6 months
 
 ### Didn't last even 6 months
-This is really disappointing. In the last week it seemed to be swapping the left and right click buttons from one side to the other. You can manually do this by holding two buttons down for a certain period so I would reset it. Then it didn't reset anymore. It was just permanently lefthanded configuration. Attempting to sort this out I flashed the firmware again but now it is completely bricked.
+This is really disappointing. In the last week it seemed to be swapping the left and right click buttons from one side to the other. You can manually do this by holding two buttons down for a certain period so I would reset it. Then it didn't reset anymore. It was just permanently lefthanded configuration. Attempting to sort this out a reflash of the firmware was performed but resulted in completely bricking the GameBall.
 
-At this point I am unsure if they are going to replace it but we will see what the future holds. This device is far too expensive to have such little longevity.
+At this point it is unknown if they are going to replace it but the warranty should still be valid. This device is far too expensive to have such little longevity. Considering the incredibly short lifespan it would be hard to recommend the cost of this device.
