@@ -72,7 +72,8 @@ export default {
     preflight: false,
     textOpacity: false,
     backgroundOpacity: false,
-    borderOpacity: false
+    borderOpacity: false,
+    aspectRatio: false
   },
 
   // Prevents Tailwind's core components
@@ -85,6 +86,7 @@ export default {
 
   plugins: [
     require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
     // Generates custom property values from tailwind config
     plugin(function ({addComponents, config}) {
       let result = '';

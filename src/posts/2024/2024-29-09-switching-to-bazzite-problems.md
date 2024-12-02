@@ -1,7 +1,7 @@
 ---
 title: Switched to Bazzite, Mostly good.
 description: Switching to Bazzite has been interesting exploring how to work within an immutable linux.
-date: 2024-29-09
+date: 2024-09-29
 draft: false
 tags: ['linux', 'bazzite', 'universal blue',]
 ---
