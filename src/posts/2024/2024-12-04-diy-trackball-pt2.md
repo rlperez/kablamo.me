@@ -1,9 +1,9 @@
 ---
 title: DIY Trackball | Hello World!
-description: Baby steps, getting an application to run! 
+description: Baby steps, getting an application to run!
 date: 2024-12-04
 draft: true
-tags: ['diy', 'trackball' 'rust' 'raspberry pi' 'pico']
+tags: ['diy', 'trackball', 'rust', 'raspberry pi', 'pico']
 ---
 
 ## Introduction
