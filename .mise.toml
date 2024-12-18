@@ -1,2 +1,7 @@
 [tools]
 bun = "1"
+
+[[env]]
+_.file = { path = ".env" }
+[[env]]
+_.file = { path = ".env.secrets", redact = true }
