@@ -1,6 +1,7 @@
 /* Global CSS root */
 
 @import 'tailwindcss/base';
+@import 'highlight.js/styles/agate.min.css';
 
 @import 'base/reset.css';
 @import 'base/fonts.css';

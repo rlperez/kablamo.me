@@ -36,6 +36,7 @@ The fastest way to get started is with [rp-rs](https://github.com/rp-rs/rp-hal) 
 
 First, add the thumbv6m target that will support our RP2040 with two Cortex-M0+ cores.
 
+```shell
 ❯ rustup self update
 info: checking for self-update
   rustup unchanged - 1.27.1
@@ -50,9 +51,11 @@ info: checking for self-update
 ❯ rustup target add thumbv6m-none-eabi
 info: downloading component 'rust-std' for 'thumbv6m-none-eabi'
 info: installing component 'rust-std' for 'thumbv6m-none-eabi'
+```
 
 Next, if you don't have systemd-devel installed it will need to be added.
 
+```shell
 ❯ sudo zypper install systemd-devel
 Loading repository data...
 Reading installed packages...
@@ -68,9 +71,11 @@ Package download size:   147.5 KiB
 Package install size change:
               |     213.1 KiB  required by packages that will be installed
    213.1 KiB  |  -      0 B    released by packages that will be removed
+```
 
 With that installed, we can now install [elf2uf2-rs](https://github.com/jonil/elf2uf2-rs?) to generate our build artifact.
 
+```shell
 ❯ cargo install elf2uf2-rs --locked
 
     Updating crates.io index
@@ -80,9 +85,11 @@ With that installed, we can now install [elf2uf2-rs](https://github.com/jonil/el
     Finished `release` profile [optimized] target(s) in 6.94s
   Installing /home/fr0bar/.cargo/bin/elf2uf2-rs
    Installed package `elf2uf2-rs v2.1.1` (executable `elf2uf2-rs`)
+```
 
 In order to support our debug probe we should also install [probe-rs-tools](https://github.com/probe-rs/probe-rs)
 
+```shell
 ❯ cargo install --locked probe-rs-tools
     Updating crates.io index
   Downloaded probe-rs-tools v0.25.0
@@ -90,3 +97,4 @@ In order to support our debug probe we should also install [probe-rs-tools](http
   ...
   Installing /home/fr0bar/.cargo/bin/probe-rs
    Installed package `probe-rs-tools v0.25.0` (executables `cargo-embed`, `cargo-flash`, `probe-rs`)
+```
