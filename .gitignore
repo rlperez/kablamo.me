@@ -12,6 +12,7 @@ src/posts/**/*.html
 
 # secret data
 .env
+.env.secrets
 .envrc
 .vercel
-.env*.local
+.env.local

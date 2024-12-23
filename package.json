@@ -1,6 +1,6 @@
 {
   "name": "eleventy-excellent",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Personal developer blog based on the eleventy-excellent theme.",
   "author": "Rigoberto L. Perez",
   "license": "ISC",
@@ -31,10 +31,11 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "@11ty/eleventy-plugin-webc": "^0.11.2",
     "@11ty/is-land": "^4.0.0",
-    "@hcaptcha/vanilla-hcaptcha": "^1.1.0-alpha2",
+    "@hcaptcha/vanilla-hcaptcha": "^1.1.1",
     "@vercel/analytics": "^1.4.1",
-    "@vercel/node": "^3.2.27",
+    "@vercel/node": "^3.2.29",
     "@vercel/speed-insights": "^1.1.0",
+    "highlight.js": "^11.11.0",
     "lite-youtube-embed": "^0.3.3",
     "mailersend": "^2.3.0",
     "request-ip": "^3.3.0"
@@ -47,7 +48,7 @@
     "cross-env": "^7.0.3",
     "cssnano": "^7.0.6",
     "dayjs": "^1.11.13",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.4.7",
     "esbuild": "^0.23.1",
     "html-minifier-terser": "^7.2.0",
     "js-yaml": "^4.1.0",
@@ -69,11 +70,11 @@
     "postcss-js": "^4.0.1",
     "prettier-plugin-jinja-template": "^1.5.0",
     "rimraf": "^6.0.1",
-    "sanitize-html": "^2.13.1",
+    "sanitize-html": "^2.14.0",
     "sharp": "^0.33.5",
     "sharp-ico": "^0.1.5",
     "slugify": "^1.6.6",
     "svgo": "^3.3.2",
-    "tailwindcss": "^3.4.15"
+    "tailwindcss": "^3.4.17"
   }
 }

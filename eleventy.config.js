@@ -102,6 +102,8 @@ export default async function (eleventyConfig) {
   // --------------------- Build Settings
   eleventyConfig.setDataDeepMerge(true);
 
+  eleventyConfig.amendLibrary('md', mdLib => mdLib.enable('code'));
+
   // --------------------- general config
   return {
     markdownTemplateEngine: 'njk',
