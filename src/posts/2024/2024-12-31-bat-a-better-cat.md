@@ -8,7 +8,7 @@ tags: ['tools', 'cli', 'terminal']
 
 ## Bat
 
-There are some eternal tools and cat is one of them. It has not appreciably changed much for an eternity. Recently I have stumbled upon a site called [Terminal Trove](https://terminaltrove.com/). A tool missing from their posts is the tool [bat](https://github.com/sharkdp/bat). As a developer, and perhaps many Linux users, when I am using cat it is with a script or log snippet. However, without perks like colorization and line numbers it can be difficult to comprehend. This may lead a user to open it in vi or helix to get those benefits. What if you didn't have to? That's where `bat` enters the picture.
+There are some eternal tools and `cat` is one of them. It has not appreciably changed much for an eternity. Recently I have stumbled upon a site called [Terminal Trove](https://terminaltrove.com/). A tool missng from their posts is the tool [bat](https://github.com/sharkdp/bat). As a developer, and perhaps many Linux users, when I am using `cat` it is with a script or log snippet. However, without perks like colorization and line numbers it can be difficult to comprehend. This may lead a user to open it in `vi` or `helix` to get those benefits. What if you didn't have to? That's where `bat` enters the picture.
 
 This is what `bat` looks like with a simple basic toml file.
 
@@ -24,7 +24,7 @@ It also can read from stdin
 
 {% image "./src/assets/images/blog/bat-a-better-cat/bat_from_stdin.png", "Screenshot of output from the command 'http https://raw.githubusercontent.com/rp-rs/rp-hal/refs/heads/main/format.sh | bat'", "Screenshot of 'http https://raw.githubusercontent.com/rp-rs/rp-hal/refs/heads/main/format.sh | bat'" %}
 
-There is a wide range of options including those that allow you to customize the output, add themes, and return to default cat behavior for example.
+There is a wide range of options including those that allow you to customize the output, add themes, and return to default `cat` behavior for example.
 
 ```bash
 ❯ cat -h
@@ -89,7 +89,7 @@ Options:
 
 ## Install
 
-The installation is straightforward. If you have the [Rust]() toolchain installed building from source is an option.
+The installation is straight forward. If you have the [Rust](https://www.rust-lang.org/) toolchain installed building from source is an option.
 
 `cargo install --locked bat`
 
@@ -99,7 +99,7 @@ Or using your package manager.
 
 ## Integrate with Fish
 
-As seen above there are fish completions available on OpenSUSE. One option to avoid muscle memory of typing `cat` vs `bat` would be to use a fish alias but that isn't quite enough. There is a convinience flag that is just too much typing to get a pagerless output. This custom override for the `cat` command gives you a nice flag to get basic output as well as only overriding the cat command in interactive mode.
+As seen above there are fish completions available on OpenSUSE. One option to avoid muscle memory of typing `cat` vs `bat` would be to use a fish alias but that isn't quite enough. There is a convinience flag that is just too much typing to get a pagerless output. This custom override for the `cat` command gives you a nice flag to get basic output as well as only overriding the `cat` command in interactive mode.
 
 ```sh
 # Utilizes bat when in user shell to get prettier code prints but
@@ -121,5 +121,5 @@ end
 As seen above the override only happens under interactive use. Additionally, it adds flag `-a` as an alias of `--pager=never` to save a few keystrokes. The command now to get plain `cat` output would be `cat -a -p`. Using the keyword `command` to execute `cat` and `bat` also maintains the correct fish completions based on the underlying command being run.
 
 
-_That is all in this installment. Look forward to more posts just like this._
+_That is all for this installment. Look forward to more posts just like this._
 
