@@ -33,7 +33,7 @@
     "@11ty/is-land": "^4.0.0",
     "@hcaptcha/vanilla-hcaptcha": "^1.1.1",
     "@vercel/analytics": "^1.4.1",
-    "@vercel/node": "^3.2.29",
+    "@vercel/node": "^5.1.12",
     "@vercel/speed-insights": "^1.1.0",
     "highlight.js": "^11.11.1",
     "lite-youtube-embed": "^0.3.3",
