@@ -1,4 +1,4 @@
-import fetch from '@11ty/eleventy-fetch';
+import Fetch from '@11ty/eleventy-fetch';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
@@ -13,7 +13,7 @@ async function fetchScreenshot(url, filePath) {
   const timeout = 'timeout:5';
   const apiUrl = `https://v1.screenshot.11ty.dev/${encodeURIComponent(url)}/large/_${waitCondition}_${timeout}/`;
 
-  const buffer = await fetch(apiUrl, {
+  const buffer = await Fetch(apiUrl, {
     duration: '1d',
     type: 'buffer'
   });

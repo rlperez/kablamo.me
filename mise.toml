@@ -1,5 +1,6 @@
 [tools]
 bun = "1"
+node = "22"
 
 [[env]]
 _.file = { path = ".env" }
