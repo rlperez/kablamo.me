@@ -106,8 +106,19 @@ As seen above there are fish completions available on OpenSUSE. One option to av
 # reverts to cat when not to prevent interfering with other scripts.
 function cat --description "alias cat bat"
     if status --is-interactive
-        # Replace and substitute -a with --pager=never
-        set -l args (string replace -a -- "-a" "--pager=never" $argv)
+        # Initialize an empty list for the arguments
+        set -l args
+        for arg in $argv
+            # Replace '-a' with '--pager=never' in each argument, if applicable
+            if [ "$arg" = "-a" ]
+                set new_arg "--pager=never"
+            else
+                set new_arg $arg
+            end
+            # Add the processed argument (either modified or unchanged) to the args list
+            set args $args $new_arg
+        end
+
         # In interactive mode, use bat
         command bat $args
     else
@@ -115,7 +126,6 @@ function cat --description "alias cat bat"
         command cat $argv
     end
 end
-
 ```
 
 As seen above the override only happens under interactive use. Additionally, it adds flag `-a` as an alias of `--pager=never` to save a few keystrokes. The command now to get plain `cat` output would be `cat -a -p`. Using the keyword `command` to execute `cat` and `bat` also maintains the correct fish completions based on the underlying command being run.
