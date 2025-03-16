@@ -24,7 +24,7 @@ At the moment my order of precedence for looking to install software is Flatpak,
 
 The first worth mentioning has to do with the terminal. Bazzite ships with [Ptyxis](https://devsuite.app/ptyxis/), a container aware terminal, and adds a bling script to dress it up. The feel largely is a slightly dressed up default GNOME terminal. Some changes `ls` to use [`exa`](https://the.exa.website/) and adds a number of other aliases for common flags. One of the ones they add however is `ld` which shadows the [linking tool](https://ftp.gnu.org/old-gnu/Manuals/ld-2.9.1/html_mono/ld.html). Given Bazzite was originally made as a bit of a SteamDeck replacement operating system I guess this wouldn't matter to most. Though, even installing some tools have to natively compile and this breaks it. I am a [fish](https://fishshell.com/) user so I can just delete their fish function in my `config.fish` with adding the following:
 
-```fish
+```sh
 functions -e ld
 ```
 
