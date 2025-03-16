@@ -7,12 +7,12 @@
   "type": "module",
   "private": true,
   "engines": {
-    "node": ">=20.x.x"
+    "node": ">=22.x.x"
   },
   "scripts": {
     "clean": "rimraf dist src/_includes/css src/_includes/scripts",
     "favicons": "bun ./src/_config/setup/generate-favicons.js",
-    "dev:clean": "rimraf src/assets/og-images",
+    "dev:clean": "rimraf dist src/assets/og-images",
     "dev:11ty": "cross-env ELEVENTY_ENV=development eleventy --serve --watch",
     "build:11ty": "cross-env ELEVENTY_ENV=production eleventy",
     "start": "run-p dev:*",
@@ -21,7 +21,7 @@
   "keywords": ["blog", "11ty"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/rlperez/rlperez.github.io.git"
+    "url": "https://github.com/rlperez/kablamo.me"
   },
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
@@ -78,7 +78,5 @@
     "svgo": "^3.3.2",
     "tailwindcss": "^3.4.17"
   },
-  "trustedDependencies": [
-    "@vercel/speed-insights"
-  ]
+  "trustedDependencies": ["@vercel/speed-insights"]
 }
