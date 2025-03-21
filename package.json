@@ -39,6 +39,7 @@
     "@vercel/node": "^5.1.14",
     "@vercel/speed-insights": "^1.2.0",
     "caniuse-lite": "^1.0.30001705",
+    "eleventy-plugin-github-repos": "^0.0.2",
     "highlight.js": "^11.11.1",
     "lite-youtube-embed": "^0.3.3",
     "mailersend": "^2.3.0",
