@@ -72,6 +72,12 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter('alphabetic', filters.sortAlphabetically);
   eleventyConfig.addFilter('toAbsoluteUrl', filters.toAbsoluteUrl);
   eleventyConfig.addFilter('slugify', filters.slugifyString);
+  eleventyConfig.addFilter('jsonify', function (value) {
+    return JSON.stringify(value);
+  });
+  eleventyConfig.addFilter('filterRepos', function (repos, names) {
+    return repos.filter(repo => names.includes(repo.name));
+  });
 
   // --------------------- Shortcodes
   eleventyConfig.addShortcode('svg', shortcodes.svgShortcode);
