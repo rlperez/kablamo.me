@@ -23,6 +23,7 @@ import events from './src/_config/events.js';
 import filters from './src/_config/filters.js';
 import plugins from './src/_config/plugins.js';
 import shortcodes from './src/_config/shortcodes.js';
+import githubRepos from 'eleventy-plugin-github-repos';
 
 export default async function (eleventyConfig) {
   eleventyConfig.addWatchTarget('./src/assets/**/*.{css,js,svg,png,jpeg,jpg}');
@@ -50,6 +51,12 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(plugins.rss);
   eleventyConfig.addPlugin(plugins.syntaxHighlight);
 
+  eleventyConfig.addPlugin(githubRepos, {
+    userAccount: 'rlperez',
+    apiKey: process.env.GITHUB_TOKEN,
+    debugMode: false
+  });
+
   eleventyConfig.addPlugin(plugins.webc, {
     components: ['./src/_includes/webc/*.webc'],
     useTransform: true
@@ -72,6 +79,12 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter('alphabetic', filters.sortAlphabetically);
   eleventyConfig.addFilter('toAbsoluteUrl', filters.toAbsoluteUrl);
   eleventyConfig.addFilter('slugify', filters.slugifyString);
+  eleventyConfig.addFilter('jsonify', function (value) {
+    return JSON.stringify(value);
+  });
+  eleventyConfig.addFilter('filterRepos', function (repos, names) {
+    return repos.filter(repo => names.includes(repo.name));
+  });
 
   // --------------------- Shortcodes
   eleventyConfig.addShortcode('svg', shortcodes.svgShortcode);
