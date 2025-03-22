@@ -1,0 +1,27 @@
+---
+layout: page
+title: Projects
+description: 'My current projects'
+permalink: '/projects/index.html'
+
+---
+
+{% set repos = collections.githubRepos | filterRepos(['pgmq-clj']) %}
+<h2>Open Source</h2>
+<section>
+{% if repos.length > 0 %}
+  <ul>
+  {% for repo in collections.githubRepos | filterRepos(['pgmq-clj']) %}
+    {% include "partials/card-project.njk" %}
+    <li>
+      <a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a>
+      {% if repo.description and repo.description.length > 0 %}
+        {{ repo.description }}
+      {% endif %}
+    </li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No repository data to display</p>
+{% endif %}
+</section>
