@@ -3,15 +3,14 @@ layout: page
 title: Projects
 description: 'My current projects'
 permalink: '/projects/index.html'
-
 ---
 
-{% set repos = collections.githubRepos | filterRepos(['pgmq-clj']) %}
+{% set repos = collections.githubRepos %}
 <h2>Open Source</h2>
 <section>
-{% if repos.length > 0 %}
+{% if github.length > 0 %}
   <ul>
-  {% for repo in collections.githubRepos | filterRepos(['pgmq-clj']) %}
+  {% for repo in github | filterRepos(["pgmq-clj"]) %}
     {% include "partials/card-project.njk" %}
     <li>
       <a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a>
