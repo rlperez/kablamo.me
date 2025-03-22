@@ -7,7 +7,7 @@ custom-card {
   border-radius: var(--border-radius);
   max-inline-size: unset;
   display: grid;
-  grid-template-rows: [image] max-content [headline] max-content [meta] max-content [desc] auto [footer] max-content;
+  grid-template-rows: [image] max-content [headline] max-content [meta] max-content [desc] auto [content] max-content [tag] max-content [footer] max-content;
 }
 
 /* avoid flow space being added to unused elements with nested slots */
@@ -58,11 +58,15 @@ custom-card > footer {
 }
 
 /* avoid overflow of long words */
-
 custom-card :is(a, p, h2, h3) {
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
+}
+
+custom-card .blog-content {
+  grid-row: content;
+  margin: 20px 0px !important;
 }
 
 /* -------------------- variants --------------------  */
