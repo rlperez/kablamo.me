@@ -23,11 +23,13 @@ import events from './src/_config/events.js';
 import filters from './src/_config/filters.js';
 import plugins from './src/_config/plugins.js';
 import shortcodes from './src/_config/shortcodes.js';
+import github from './src/_data/github.js';
 
 export default async function (eleventyConfig) {
   eleventyConfig.addWatchTarget('./src/assets/**/*.{css,js,svg,png,jpeg,jpg}');
   eleventyConfig.addWatchTarget('./src/_includes/**/*.{webc}');
   eleventyConfig.addGlobalData('env', process.env);
+  eleventyConfig.addGlobalData('github', github);
 
   // --------------------- layout aliases
   eleventyConfig.addLayoutAlias('base', 'base.njk');

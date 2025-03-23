@@ -1,16 +1,24 @@
 import Fetch from '@11ty/eleventy-fetch';
 
 export default async function () {
-  let url = 'https://api.github.com/users/rlperez/repos';
+  let data = 'no data';
 
-  // returning promise
-  let data = await Fetch(url, {
-    duration: '1d',
-    type: 'json'
-  });
+  try {
+    let url = 'https://api.github.com/users/rlperez/repos';
 
-  console.error({data});
-
+    // returning promise
+    data = await Fetch(url, {
+      duration: '1d',
+      type: 'json',
+      fetchOptions: {
+        headers: {
+          Authorization: `token ${process.env.GITHUB_TOKEN}`
+        }
+      }
+    });
+  } catch (e) {
+    console.error(e);
+  }
   return data;
 }
 
