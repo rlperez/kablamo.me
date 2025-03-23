@@ -1,0 +1,19 @@
+---
+layout: page
+title: Projects
+description: 'My current projects'
+permalink: 'projects/index.html'
+---
+
+<ul>
+  {% for repo in github %}
+    asdasdasdasd
+    {% set details = getRepoDetails(repo) %}
+    <li>
+      <h2><a href="{{ repo.html_url }}">{{ repo.name }}</a></h2>
+      <p>{{ repo.description }}</p>
+      <p>Languages: {% for lang, value in details.languages %}{{ lang }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+      <p>Latest release: {{ details.latest_release.value }}</p>
+    </li>
+  {% endfor %}
+</ul>
