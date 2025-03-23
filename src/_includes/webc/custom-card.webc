@@ -6,7 +6,3 @@
   <slot name="tag"></slot>
   <slot name="footer"></slot>
 </custom-card>
-
-{% css "inline" %}
-  {% include "../../assets/css/components/custom-card.css" %}
-{% endcss %}
