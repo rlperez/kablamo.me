@@ -1,13 +1,11 @@
 import Fetch from '@11ty/eleventy-fetch';
 
 export default async function () {
-  let data = 'no data';
-
   try {
     let url = 'https://api.github.com/users/rlperez/repos';
 
     // returning promise
-    data = await Fetch(url, {
+    return await Fetch(url, {
       duration: '1d',
       type: 'json',
       fetchOptions: {
@@ -19,7 +17,6 @@ export default async function () {
   } catch (e) {
     console.error(e);
   }
-  return data;
 }
 
 /**
@@ -27,6 +24,7 @@ export default async function () {
  * the GitHub api and returns details from the repo.
  */
 export async function getRepoDetails(repo) {
+  console.log('=============================================================');
   const [latest_release, languages] = await Promise.allSettled([
     Promise.resolve(repo.name),
     Fetch(repo.releases_url, {id: 'latest'}),
