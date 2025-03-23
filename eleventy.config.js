@@ -23,13 +23,13 @@ import events from './src/_config/events.js';
 import filters from './src/_config/filters.js';
 import plugins from './src/_config/plugins.js';
 import shortcodes from './src/_config/shortcodes.js';
-import github from './src/_data/github.js';
+import githubRepos from './src/_data/github.js';
+import {getRepoDetails} from './src/_data/github.js';
 
 export default async function (eleventyConfig) {
   eleventyConfig.addWatchTarget('./src/assets/**/*.{css,js,svg,png,jpeg,jpg}');
   eleventyConfig.addWatchTarget('./src/_includes/**/*.{webc}');
   eleventyConfig.addGlobalData('env', process.env);
-  eleventyConfig.addGlobalData('github', github);
 
   // --------------------- layout aliases
   eleventyConfig.addLayoutAlias('base', 'base.njk');
@@ -41,6 +41,10 @@ export default async function (eleventyConfig) {
   eleventyConfig.addCollection('allPosts', getAllPosts);
   eleventyConfig.addCollection('onlyMarkdown', onlyMarkdown);
   eleventyConfig.addCollection('tagList', tagList);
+  eleventyConfig.addCollection('github', async () => {
+    const repos = await githubRepos();
+    return repos;
+  });
 
   // ---------------------  Plugins
   eleventyConfig.addPlugin(plugins.htmlConfig);
@@ -51,7 +55,6 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(plugins.EleventyRenderPlugin);
   eleventyConfig.addPlugin(plugins.rss);
   eleventyConfig.addPlugin(plugins.syntaxHighlight);
-
   eleventyConfig.addPlugin(plugins.webc, {
     components: ['./src/_includes/webc/*.webc'],
     useTransform: true
@@ -77,10 +80,13 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter('jsonify', function (value) {
     return JSON.stringify(value);
   });
-  eleventyConfig.addFilter('filterRepos', function (repos, names) {
-    return repos.filter(repo => names.includes(repo.name));
+  eleventyConfig.addFilter('parseJson', function (value) {
+    return JSON.parse(value);
   });
 
+  eleventyConfig.addFilter('repoDetails', async function (repo) {
+    return await getRepoDetails(repo);
+  });
   // --------------------- Shortcodes
   eleventyConfig.addShortcode('svg', shortcodes.svgShortcode);
   eleventyConfig.addShortcode('image', shortcodes.imageShortcode);

@@ -5,7 +5,7 @@ export default async function () {
     let url = 'https://api.github.com/users/rlperez/repos';
 
     // returning promise
-    return await Fetch(url, {
+    const repos = await Fetch(url, {
       duration: '1d',
       type: 'json',
       fetchOptions: {
@@ -14,8 +14,11 @@ export default async function () {
         }
       }
     });
+
+    return repos;
   } catch (e) {
     console.error(e);
+    throw e;
   }
 }
 
