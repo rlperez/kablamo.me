@@ -1,10 +1,12 @@
 <custom-card class="flow no-indicator" webc:root>
   <slot name="image"></slot>
   <slot name="headline"></slot>
-  <div class="meta | cluster"><slot name="date"></slot><slot name="tag"></slot></div>
+  <div class="meta | cluster"><slot name="date"></slot></div>
   <slot name="content"></slot>
+  <slot name="tag"></slot>
   <slot name="footer"></slot>
-
-  <!-- TODO: find out why is this not being hoisted into the webc css bundle?  -->
-  <link rel="stylesheet" href="/assets/css/components/custom-card.css" />
 </custom-card>
+
+{% css "inline" %}
+  {% include "../../assets/css/components/custom-card.css" %}
+{% endcss %}

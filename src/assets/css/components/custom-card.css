@@ -7,7 +7,7 @@ custom-card {
   border-radius: var(--border-radius);
   max-inline-size: unset;
   display: grid;
-  grid-template-rows: [image] max-content [headline] max-content [meta] max-content [desc] auto [footer] max-content;
+  grid-template-rows: [image] max-content [headline] max-content [meta] max-content [desc] auto [content] max-content [tag] max-content [footer] max-content;
 }
 
 /* avoid flow space being added to unused elements with nested slots */
@@ -55,6 +55,11 @@ custom-card > p {
 custom-card > footer {
   grid-row: footer;
   font-size: var(--size-step-min-2);
+}
+
+custom-card .blog-content {
+  grid-row: content;
+  margin: 20px 0px !important;
 }
 
 /* avoid overflow of long words */
