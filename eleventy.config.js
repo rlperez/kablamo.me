@@ -24,7 +24,6 @@ import filters from './src/_config/filters.js';
 import plugins from './src/_config/plugins.js';
 import shortcodes from './src/_config/shortcodes.js';
 import githubRepos from './src/_data/github.js';
-import {getRepoDetails} from './src/_data/github.js';
 
 export default async function (eleventyConfig) {
   eleventyConfig.addWatchTarget('./src/assets/**/*.{css,js,svg,png,jpeg,jpg}');
@@ -77,16 +76,11 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter('alphabetic', filters.sortAlphabetically);
   eleventyConfig.addFilter('toAbsoluteUrl', filters.toAbsoluteUrl);
   eleventyConfig.addFilter('slugify', filters.slugifyString);
-  eleventyConfig.addFilter('jsonify', function (value) {
-    return JSON.stringify(value);
-  });
-  eleventyConfig.addFilter('parseJson', function (value) {
-    return JSON.parse(value);
-  });
+  eleventyConfig.addFilter('jsonify', filters.stringify);
+  eleventyConfig.addFilter('parseJson', filters.parse);
+  eleventyConfig.addFilter('filterRepos', filters.filterByRepoName);
+  eleventyConfig.addFilter('repoDetails', filters.repoDetails);
 
-  eleventyConfig.addFilter('repoDetails', async function (repo) {
-    return await getRepoDetails(repo);
-  });
   // --------------------- Shortcodes
   eleventyConfig.addShortcode('svg', shortcodes.svgShortcode);
   eleventyConfig.addShortcode('image', shortcodes.imageShortcode);

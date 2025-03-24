@@ -6,6 +6,8 @@ import {splitlines} from './filters/splitlines.js';
 import {striptags} from './filters/striptags.js';
 import {toAbsoluteUrl} from './filters/to-absolute-url.js';
 import {slugifyString} from './filters/slugify.js';
+import {stringify, parse} from './filters/json.js';
+import {filterByRepoName, repoDetails} from './filters/github.js';
 
 export default {
   toISOString,
@@ -16,5 +18,9 @@ export default {
   toAbsoluteUrl,
   shuffleArray,
   sortAlphabetically,
-  slugifyString
+  slugifyString,
+  stringify,
+  parse,
+  filterByRepoName,
+  repoDetails
 };
