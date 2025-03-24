@@ -9,8 +9,7 @@
   <p slot="content" class="blog_content">{{details.description}}</p>
   <p slot="tag">
     {% for lang in details.languages.languages %}
-    TODO: I need to take this code and make it a filter
-    <span class="button post-tag">{{ Object.entries(obj).map(([key, value]) => `${key}: ${value}`).join(", ")</span>
+    <span class="button post-tag">{{ language }}</span>
     {% endfor %}
   </p>
 </custom-card>

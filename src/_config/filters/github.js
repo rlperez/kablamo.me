@@ -42,13 +42,13 @@ const mapLatestRelease = latest_release =>
 const mapLanguages = rawLanguages => {
   const result = {total: 0, languages: []};
   if (rawLanguages.status !== 'rejected') {
-    const decoder = new TextDecoder();
-    const languagesAndCount = JSON.parse(decoder.decode(rawLanguages.value));
-    const total = Object.values(languagesAndCount).reduce((sum, value) => sum + value, 0);
+    const languageValue = rawLanguages.value;
 
-    const languages = Object.entries(languagesAndCount).map(([key, value]) => {
+    const total = Object.values(languageValue).reduce((sum, value) => sum + value, 0);
+
+    const languages = Object.entries(languageValue).map(([key, value]) => {
       const percent = ((value / total) * 100).toFixed(2);
-      return {[key]: parseFloat(percent)};
+      return `${key}: ${percent}%`;
     });
 
     result.total = total;
