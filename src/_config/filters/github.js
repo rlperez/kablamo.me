@@ -18,10 +18,12 @@ export const repoDetails = async repo => {
   languages = mapLanguages(languages);
   latest_release = mapLatestRelease(latest_release);
 
+  let [name, description, html_url] = [repo.name, repo.description, repo.html_url];
+
   const result = {
-    name: repo.name,
-    html_url: repo.html_url,
-    description: repo.description,
+    name,
+    html_url,
+    description,
     latest_release,
     languages
   };
