@@ -1,8 +1,20 @@
 <custom-card>
-  <h3 slot="headline">{{ repo.name }}</h3>
-  <p slot="image">asdasd</p>
-  <p slot="date">poiopi</p>
-  <p slot="tag">;lkl;k</p>
-  <p slot="content">,.m,.m</p>
-  <p slot="footer">zxczxcv</p>
+  <h3 slot="headline">{{details.name}}</h3>
+  <div slot="date">
+    <span>Version: {{details.latest_release.tag}}</span>
+    {% set definedDate = details.latest_release.published %}
+    <span>Updated: {% include "partials/date.njk" %}</span>
+    <span>Lines: {{details.languages.total}}</span>
+  </div>
+  <p slot="content" class="blog_content">{{details.description}}</p>
+  <p slot="tag">
+    {% for lang in details.languages.languages %}
+    TODO: I need to take this code and make it a filter
+    <span class="button post-tag">{{ Object.entries(obj).map(([key, value]) => `${key}: ${value}`).join(", ")</span>
+    {% endfor %}
+  </p>
 </custom-card>
+
+{% css "inline" %}
+  {% include "../../assets/css/components/custom-card.css" %}
+{% endcss %}
