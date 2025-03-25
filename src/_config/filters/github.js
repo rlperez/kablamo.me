@@ -15,7 +15,7 @@ export const repoDetails = async repo => {
     Fetch(repo.languages_url, fetchOptions)
   ]);
 
-  languages = mapLanguages(languages);
+  const details = mapLanguages(languages);
   latest_release = mapLatestRelease(latest_release);
 
   let [name, description, html_url] = [repo.name, repo.description, repo.html_url];
@@ -25,7 +25,7 @@ export const repoDetails = async repo => {
     html_url,
     description,
     latest_release,
-    languages
+    details
   };
 
   return result;
@@ -45,15 +45,19 @@ const mapLanguages = rawLanguages => {
     const languageValue = rawLanguages.value;
 
     const total = Object.values(languageValue).reduce((sum, value) => sum + value, 0);
+    const languages = Object.entries(languageValue)
+      .sort((a, b) => {
+        const [[_aKey, aValue]] = Object.entries(a);
+        const [[_bKey, bValue]] = Object.entries(b);
+        return bValue - aValue;
+      })
+      .forEach(([key, value]) => {
+        const percent = ((value / total) * 100).toFixed(2);
+        result.languages.push(`${key}: ${percent}%`);
+      });
 
-    const languages = Object.entries(languageValue).map(([key, value]) => {
-      const percent = ((value / total) * 100).toFixed(2);
-      return `${key}: ${percent}%`;
-    });
-
-    result.total = total;
-    result.languages = languages;
+    return {total, languages};
+  } else {
+    return {total: 0, languages: []};
   }
-
-  return result;
 };
