@@ -6,14 +6,13 @@
 
   <div slot="content" class="blog-content">{{ item.data.description | markdownFormat | safe }}</div>
   {% if item.data.tags.length >= 1 %}
-    <div slot="tag">
+    <div slot="tag" class="taglist">
        {% for tag in item.data.tags %}
          {% if tag != "posts" %}
          <a href="{{ 'tags/' + tag | url }}"><span class="button post-tag">{{ tag }}</span></a>
          {% endif %}
        {% endfor %}
      </div>
-
    {% endif %}
 </custom-card>
 
