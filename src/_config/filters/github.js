@@ -15,6 +15,7 @@ export const repoDetails = async repo => {
     Fetch(repo.languages_url, fetchOptions)
   ]);
 
+  console.error(repo);
   const details = mapLanguages(languages);
   latest_release = mapLatestRelease(latest_release);
 
@@ -40,24 +41,22 @@ const mapLatestRelease = latest_release =>
       };
 
 const mapLanguages = rawLanguages => {
-  const result = {total: 0, languages: []};
   if (rawLanguages.status !== 'rejected') {
     const languageValue = rawLanguages.value;
-
-    const total = Object.values(languageValue).reduce((sum, value) => sum + value, 0);
+    const totalBytes = Object.values(languageValue).reduce((sum, value) => sum + value, 0);
     const languages = Object.entries(languageValue)
       .sort((a, b) => {
         const [[_aKey, aValue]] = Object.entries(a);
         const [[_bKey, bValue]] = Object.entries(b);
         return bValue - aValue;
       })
-      .forEach(([key, value]) => {
-        const percent = ((value / total) * 100).toFixed(2);
-        result.languages.push(`${key}: ${percent}%`);
+      .map(([key, value]) => {
+        const percent = ((value / totalBytes) * 100).toFixed(2);
+        return `${key}: ${percent}%`;
       });
 
-    return {total, languages};
+    return {languages};
   } else {
-    return {total: 0, languages: []};
+    return {languages: []};
   }
 };

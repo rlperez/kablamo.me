@@ -5,9 +5,11 @@ description: 'My current projects'
 permalink: 'projects/index.html'
 ---
 
-<div>
+<div class="mt-xl">
   {% for repo in collections.github | filterRepos(["kablamo.me", "pgmq-clj"]) %}
-    {% set details = repo | repoDetails %}
+    {% set repoData = repo | repoDetails %}
     {% include "partials/card-project.njk" %}
+    <div class="separator">
+    </div>
   {% endfor %}
 </div>

@@ -1,19 +1,18 @@
 <custom-card>
   <h2 slot="headline">{{repoData.name}}</h2>
   <span slot="date">
-    Lines: {{repoData.details.total}}
-    {% if repoData.latest_release.tag != null %}Version: {{repoData.latest_release.tag}}{% endif %}
+    {% if repoData.latest_release.tag != null %}<b>Version:</b> {{repoData.latest_release.tag}}{% endif %}
     {% if repoData.latest_release.published %}
     {% set definedDate = repoData.latest_release.published %}
-    Updated: {% include "partials/date.njk" %}
+    <b>Updated:</b> {% include "partials/date.njk" %}
     {% endif %}
   </span>
-  <div slot="content" class="blog-content">{{repoData.description}}</div>
-  <div slot="tag" class="taglist">
+  <p slot="content" class="blog-content">{{repoData.description}}</p>
+  <footer slot="footer" class="taglist">
     {% for language in repoData.details.languages %}
-    <span class="button post-tag">{{ language }}</span>
+    <div class="button post-tag">{{ language }}</div>
     {% endfor %}
-  </div>
+  </footer>
 </custom-card>
 
 {% css "inline" %}
