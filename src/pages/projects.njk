@@ -7,9 +7,9 @@ permalink: 'projects/index.html'
 
 <div class="mt-xl">
   {% for repo in collections.github | filterRepos(["kablamo.me", "pgmq-clj"]) %}
+    <section class="separator">
     {% set repoData = repo | repoDetails %}
     {% include "partials/card-project.njk" %}
-    <div class="separator">
-    </div>
+    </section>
   {% endfor %}
 </div>

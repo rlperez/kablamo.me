@@ -72,6 +72,10 @@ custom-card :is(a, p, h2, h3) {
 
 /* -------------------- variants --------------------  */
 
+custom-card[project] {
+  margin-bottom: 3.5rem !important;
+}
+
 /* no padding */
 custom-card[no-padding] {
   background-color: transparent;
