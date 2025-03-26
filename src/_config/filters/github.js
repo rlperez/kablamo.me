@@ -14,11 +14,9 @@ export const repoDetails = async repo => {
     Fetch(repo.tags_url, {...fetchOptions}),
     Fetch(repo.languages_url, fetchOptions)
   ]);
-  console.warn(repo.name);
+
   const details = mapLanguages(languages);
-  console.warn({tags});
   const latest_release = mapLatestRelease(tags);
-  console.warn({latest_release});
   const [name, description, html_url] = [repo.name, repo.description, repo.html_url];
 
   const result = {
@@ -32,7 +30,7 @@ export const repoDetails = async repo => {
   return result;
 };
 
-const mapLatestRelease = tags => (tags.status === 'rejected' ? {} : tags.value?.reverse().pop()?.name);
+const mapLatestRelease = tags => (tags.status === 'rejected' ? {} : tags.value.reverse().pop()?.name);
 
 const mapLanguages = rawLanguages => {
   if (rawLanguages.status !== 'rejected') {
