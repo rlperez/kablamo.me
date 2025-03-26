@@ -7,7 +7,7 @@
   <p slot="content" class="blog-content">{{repoData.description}}</p>
   <footer slot="footer" class="taglist">
     {% for language in repoData.details.languages %}
-    <div class="button post-tag">{{ language }}</div>
+    <div class="button post-tag">{{ language }} </div>
     {% endfor %}
   </footer>
 </custom-card>
@@ -15,4 +15,5 @@
 {% css "inline" %}
   {% include "../../assets/css/components/custom-card.css" %}
   custom-card { margin-bottom: 3.5rem!important; }
+  div.post-tag { margin-right: 0.05rem; }
 {% endcss %}
