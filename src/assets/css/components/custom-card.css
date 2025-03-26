@@ -7,7 +7,7 @@ custom-card {
   border-radius: var(--border-radius);
   max-inline-size: unset;
   display: grid;
-  grid-template-rows: [image] max-content [headline] max-content [meta] max-content [desc] auto [footer] max-content;
+  grid-template-rows: [image] max-content [headline] max-content [meta] max-content [desc] auto [tag] max-content [footer] max-content;
 }
 
 /* avoid flow space being added to unused elements with nested slots */
@@ -57,6 +57,11 @@ custom-card > footer {
   font-size: var(--size-step-min-2);
 }
 
+custom-card .blog-content {
+  grid-row: content;
+  margin: 20px 0px !important;
+}
+
 /* avoid overflow of long words */
 
 custom-card :is(a, p, h2, h3) {
@@ -67,8 +72,11 @@ custom-card :is(a, p, h2, h3) {
 
 /* -------------------- variants --------------------  */
 
-/* no padding */
+custom-card[project] {
+  margin-bottom: 3.5rem !important;
+}
 
+/* no padding */
 custom-card[no-padding] {
   background-color: transparent;
   border: 4px solid var(--color-bg-accent);
@@ -77,7 +85,6 @@ custom-card[no-padding] {
 }
 
 /* squared image */
-
 custom-card[img-square] img {
   aspect-ratio: 1;
 }

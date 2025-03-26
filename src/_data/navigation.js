@@ -9,6 +9,10 @@ export default {
       url: '/blog/'
     },
     {
+      text: 'Projects',
+      url: '/projects/'
+    },
+    {
       text: 'Contact',
       url: '/contact/'
     }

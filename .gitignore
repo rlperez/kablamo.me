@@ -16,3 +16,5 @@ src/posts/**/*.html
 .envrc
 .vercel
 .env.local
+.vscode/
+.projectile-cache.eld

@@ -23,6 +23,7 @@ import events from './src/_config/events.js';
 import filters from './src/_config/filters.js';
 import plugins from './src/_config/plugins.js';
 import shortcodes from './src/_config/shortcodes.js';
+import githubRepos from './src/_data/github.js';
 
 export default async function (eleventyConfig) {
   eleventyConfig.addWatchTarget('./src/assets/**/*.{css,js,svg,png,jpeg,jpg}');
@@ -39,6 +40,10 @@ export default async function (eleventyConfig) {
   eleventyConfig.addCollection('allPosts', getAllPosts);
   eleventyConfig.addCollection('onlyMarkdown', onlyMarkdown);
   eleventyConfig.addCollection('tagList', tagList);
+  eleventyConfig.addCollection('github', async () => {
+    const repos = await githubRepos();
+    return repos;
+  });
 
   // ---------------------  Plugins
   eleventyConfig.addPlugin(plugins.htmlConfig);
@@ -49,7 +54,6 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(plugins.EleventyRenderPlugin);
   eleventyConfig.addPlugin(plugins.rss);
   eleventyConfig.addPlugin(plugins.syntaxHighlight);
-
   eleventyConfig.addPlugin(plugins.webc, {
     components: ['./src/_includes/webc/*.webc'],
     useTransform: true
@@ -72,6 +76,10 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter('alphabetic', filters.sortAlphabetically);
   eleventyConfig.addFilter('toAbsoluteUrl', filters.toAbsoluteUrl);
   eleventyConfig.addFilter('slugify', filters.slugifyString);
+  eleventyConfig.addFilter('jsonify', filters.stringify);
+  eleventyConfig.addFilter('parseJson', filters.parse);
+  eleventyConfig.addFilter('filterRepos', filters.filterByRepoName);
+  eleventyConfig.addFilter('repoDetails', filters.repoDetails);
 
   // --------------------- Shortcodes
   eleventyConfig.addShortcode('svg', shortcodes.svgShortcode);
