@@ -1,11 +1,7 @@
 <custom-card>
   <h2 slot="headline">{{repoData.name}}</h2>
   <span slot="date">
-    {% if repoData.latest_release.tag != null %}<span><b>Version:</b> {{repoData.latest_release.tag}} | </span>{% endif %}
-    {% if repoData.latest_release.published %}
-    {% set definedDate = repoData.latest_release.published %}
-    <span><b>Updated:</b> {% include "partials/date.njk" %} | </span>
-    {% endif %}
+    {% if repoData.latest_release != null %}<span><b>Version:</b> {{repoData.latest_release}} | </span>{% endif %}
     <span><a href="{{repoData.html_url}}"><i class="fa-brands fa-github"></i></a></span>
   </span>
   <p slot="content" class="blog-content">{{repoData.description}}</p>

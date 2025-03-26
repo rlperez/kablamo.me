@@ -10,16 +10,14 @@ export const filterByRepoName = (repos, names) => {
  * the GitHub api and returns details from the repo.
  */
 export const repoDetails = async repo => {
-  let [latest_release, languages] = await Promise.allSettled([
-    Fetch(repo.releases_url.replace('{/id}', '/latest'), {id: 'latest', ...fetchOptions}),
+  let [tags, languages] = await Promise.allSettled([
+    Fetch(repo.tags_url, {...fetchOptions}),
     Fetch(repo.languages_url, fetchOptions)
   ]);
 
-  console.error(repo);
   const details = mapLanguages(languages);
-  latest_release = mapLatestRelease(latest_release);
-
-  let [name, description, html_url] = [repo.name, repo.description, repo.html_url];
+  const latest_release = mapLatestRelease(tags);
+  const [name, description, html_url] = [repo.name, repo.description, repo.html_url];
 
   const result = {
     name,
@@ -32,13 +30,7 @@ export const repoDetails = async repo => {
   return result;
 };
 
-const mapLatestRelease = latest_release =>
-  latest_release.status === 'rejected'
-    ? {}
-    : {
-        tag: latest_release.value.tag_name,
-        published: latest_release.value.published_at
-      };
+const mapLatestRelease = tags => (tags.status === 'rejected' ? {} : tags.value.reverse().pop()?.name);
 
 const mapLanguages = rawLanguages => {
   if (rawLanguages.status !== 'rejected') {
