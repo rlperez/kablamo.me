@@ -74,15 +74,15 @@ export default async function handler(request, response) {
 
   if (verify_response.status === 200) {
     const result = await sendMail(request.body);
-    const [statusCode, body] = result;
-    if (statusCode >= 200 || statusCode <= 299) {
-      console.log({statusCode, body});
-      return response.status(200).json({body: {status: statusCode, message: 'Email successful sent'}});
+    const [status, body] = [result.statusCode, result.body];
+    if (status >= 200 || status <= 299) {
+      console.log({status, body});
+      return response.status(200).json({body: {status, message: 'Email successful sent'}});
     } else {
       console.error({request: body, result});
       return response.status(500).json({
         body: {
-          status: statusCode,
+          status,
           message: body
         }
       });
