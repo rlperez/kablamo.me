@@ -39,14 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     })
       .then(response => {
-        console.log('Form submission response', response.body);
-        console.log('Form json', JSON.stringify(response.body ?? {}));
-        return response.json();
+        console.log('Form submission response: ', response.body);
+        console.log('Form json: ', JSON.stringify(response.body ?? {}));
+        return response?.json();
       })
       .catch(error => {
         console.error('Error:', error);
       });
-    console.error(JSON.stringify(response));
+
     if (response && response.status >= 200 && response.status < 400) {
       showFlash(flash, `${response.body.message}`, 'is-primary');
     } else {
