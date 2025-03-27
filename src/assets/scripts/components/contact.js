@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(error => {
         console.error('Error:', error);
       });
-
-    if (response && response.status === 200) {
+    console.error(JSON.stringify(response));
+    if (response && response.status >= 200 && response.status < 400) {
       showFlash(flash, 'Message successfully sent!', 'is-primary');
     } else {
       setTimeout(() => {
