@@ -74,6 +74,9 @@ export default async function handler(request, response) {
 
   if (verify_response.status === 200) {
     const result = await sendMail(request.body);
+    console.error({result});
+    console.error({body: result?.body});
+    console.error(JSON.stringify(result.body));
     const [status, body] = [result.statusCode, result.body];
     if (status >= 200 || status <= 299) {
       console.log({status, body});
