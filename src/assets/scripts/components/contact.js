@@ -1,6 +1,6 @@
 const showFlash = (flash, message, cssClass) => {
   flash.classList.add(cssClass);
-  flash.innerHtml = message;
+  flash.innerHTML = message;
   flash.classList.remove('is-hidden');
   setTimeout(() => {
     flash.classList.add('is-hidden');
@@ -17,14 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const btn = document.getElementById('contactSubmitBtn');
     const hcaptchaToken = hcaptcha.getAttribute('data-token');
 
-    if (!hcaptchaToken) {
-      flash.classList.add('is-danger');
-      flash.innerHTML = 'An error occurred sending message! Please try again later.';
+    if (!flash) console.log('contactFlash div not found', flash);
+
+    if (!hcaptchaToken && flash) {
+      showFlash(flash, 'An error occurred sending message! Please try again later.', 'is-danger');
     }
 
     btn.setAttribute('disabled', '');
-
-    if (!flash) console.log('contactFlash div not found', flash);
 
     const values = new URLSearchParams();
     document
@@ -72,8 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.setAttribute('disabled', '');
 
     const flash = document.getElementById('contactFlash');
-    flash.classList.add('is-danger');
-    flash.innerHTML = 'An error occurred verifying your captcha! Please reload and try again later.';
+    showFlash(
+      flash,
+      'An error occurred verifying your captcha! Please reload and try again later.',
+      'is-danger'
+    );
   });
 
   const form = document.getElementById('contactForm');
