@@ -39,9 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     })
       .then(response => {
-        const resp = response?.json() ?? {};
-        console.log('Form submission response: ', resp.body);
-        console.log('Form json: ', JSON.stringify(resp.body ?? {}));
+        const resp = response?.body ?? {};
+        console.log({response});
+        console.log('Form submission response: ', resp);
+        console.log('Form json: ', JSON.stringify(resp ?? {}));
         return resp;
       })
       .catch(error => {

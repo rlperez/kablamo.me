@@ -77,14 +77,12 @@ export default async function handler(request, response) {
     const [status, body] = [result.statusCode, result.body];
     if (status >= 200 || status <= 299) {
       console.log({status, body});
-      return response.status(200).json({body: {status, message: 'Email successful sent'}});
+      return response.status(200).json({status, message: 'Email successful sent'});
     } else {
       console.error({request: body, result});
       return response.status(500).json({
-        body: {
-          status,
-          message: body
-        }
+        status,
+        message: body
       });
     }
   } else {
