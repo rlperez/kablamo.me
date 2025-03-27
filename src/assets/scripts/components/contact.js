@@ -31,8 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
       .forEach(element => values.append(element.id, element.value));
     values.append('hcaptchaResponse', hcaptchaToken);
 
-    console.error(values);
-
     const response = await fetch(form.action, {
       method: form.method,
       body: values,
@@ -50,12 +48,16 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     console.error(JSON.stringify(response));
     if (response && response.status >= 200 && response.status < 400) {
-      showFlash(flash, 'Message successfully sent!', 'is-primary');
+      showFlash(flash, `${response.body.message}`, 'is-primary');
     } else {
       setTimeout(() => {
         btn.removeAttribute('disabled');
       }, 5000);
-      showFlash(flash, 'An error occurred sending message! Please try again later.', 'is-danger');
+      showFlash(
+        flash,
+        `An error occurred sending message! Please try again later. ${response.body.message}`,
+        'is-danger'
+      );
     }
   };
 
