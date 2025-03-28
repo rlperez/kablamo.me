@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('Form json: ', JSON.stringify(resp ?? {}));
 
       if (response.status >= 200 && response.status < 300) {
-        showFlash(flash, `${resp.message}`, 'is-primary');
+        showFlash(flash, `${resp.message}`, 'is-success');
       } else {
         setTimeout(() => {
           btn.removeAttribute('disabled');
