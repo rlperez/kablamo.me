@@ -30,36 +30,38 @@ document.addEventListener('DOMContentLoaded', () => {
       .querySelectorAll('#contactForm .input')
       .forEach(element => values.append(element.id, element.value));
     values.append('hcaptchaResponse', hcaptchaToken);
-
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: values,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    })
-      .then(response => {
-        const resp = response?.body ?? {};
-        console.log({response});
-        console.log('Form submission response: ', resp);
-        console.log('Form json: ', JSON.stringify(resp ?? {}));
-        return resp;
-      })
-      .catch(error => {
-        console.error('Error:', error);
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: values,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
       });
 
-    if (response && response.status >= 200 && response.status < 400) {
-      showFlash(flash, `${response.body.message}`, 'is-primary');
-    } else {
+      const resp = await response.json();
+      console.log({resp});
+      console.log('Form submission response: ', resp);
+      console.log('Form json: ', JSON.stringify(resp ?? {}));
+
+      if (response.ok()) {
+        showFlash(flash, `${resp.message}`, 'is-primary');
+      } else {
+        setTimeout(() => {
+          btn.removeAttribute('disabled');
+        }, 5000);
+        showFlash(
+          flash,
+          `An error occurred sending message! Please try again later. ${resp.message}`,
+          'is-danger'
+        );
+      }
+    } catch (error) {
+      console.error('Error: ', error);
       setTimeout(() => {
         btn.removeAttribute('disabled');
       }, 5000);
-      showFlash(
-        flash,
-        `An error occurred sending message! Please try again later. ${response.body.message}`,
-        'is-danger'
-      );
+      showFlash(flash, 'An unexpected critical error has occurred. Please try again later.', 'is-danger');
     }
   };
 
