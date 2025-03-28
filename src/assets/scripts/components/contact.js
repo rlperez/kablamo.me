@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('Form submission response: ', resp);
       console.log('Form json: ', JSON.stringify(resp ?? {}));
 
-      if (response.ok()) {
+      if (response.status >= 200 && response.status < 300) {
         showFlash(flash, `${resp.message}`, 'is-primary');
       } else {
         setTimeout(() => {
