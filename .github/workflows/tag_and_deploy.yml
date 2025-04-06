@@ -17,8 +17,8 @@ jobs:
       - name: Install Bun and Vercel
         run: |
           curl -fsSL https://bun.sh/install | bash
-          BUN=~/.bun/bin/bun
-          $BUN install -g vercel@latest
+          echo "~/.bun/bin" >> $GITHUB_PATH
+          bun install -g vercel@latest
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
       - name: Build Project Artifacts
