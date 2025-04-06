@@ -1,6 +1,6 @@
 const showFlash = (flash, message, cssClass) => {
   flash.classList.add(cssClass);
-  flash.innerHtml = message;
+  flash.innerHTML = message;
   flash.classList.remove('is-hidden');
   setTimeout(() => {
     flash.classList.add('is-hidden');
@@ -17,46 +17,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const btn = document.getElementById('contactSubmitBtn');
     const hcaptchaToken = hcaptcha.getAttribute('data-token');
 
-    if (!hcaptchaToken) {
-      flash.classList.add('is-danger');
-      flash.innerHTML = 'An error occurred sending message! Please try again later.';
+    if (!flash) console.log('contactFlash div not found', flash);
+
+    if (!hcaptchaToken && flash) {
+      showFlash(flash, 'An error occurred sending message! Please try again later.', 'is-danger');
     }
 
     btn.setAttribute('disabled', '');
-
-    if (!flash) console.log('contactFlash div not found', flash);
 
     const values = new URLSearchParams();
     document
       .querySelectorAll('#contactForm .input')
       .forEach(element => values.append(element.id, element.value));
     values.append('hcaptchaResponse', hcaptchaToken);
-
-    console.error(values);
-
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: values,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    })
-      .then(response => {
-        console.log('Form submission response', response.body);
-        console.log('Form json', JSON.stringify(response.body ?? {}));
-        return response.json();
-      })
-      .catch(error => {
-        console.error('Error:', error);
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: values,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
       });
 
-    if (response && response.status === 200) {
-      showFlash(flash, 'Message successfully sent!', 'is-primary');
-    } else {
+      const resp = await response.json();
+      console.log({resp});
+      console.log('Form submission response: ', resp);
+      console.log('Form json: ', JSON.stringify(resp ?? {}));
+
+      if (response.status >= 200 && response.status < 300) {
+        showFlash(flash, `${resp.message}`, 'is-success');
+      } else {
+        setTimeout(() => {
+          btn.removeAttribute('disabled');
+        }, 5000);
+        showFlash(
+          flash,
+          `An error occurred sending message! Please try again later. ${resp.message}`,
+          'is-danger'
+        );
+      }
+    } catch (error) {
+      console.error('Error: ', error);
       setTimeout(() => {
         btn.removeAttribute('disabled');
       }, 5000);
-      showFlash(flash, 'An error occurred sending message! Please try again later.', 'is-danger');
+      showFlash(flash, 'An unexpected critical error has occurred. Please try again later.', 'is-danger');
     }
   };
 
@@ -72,8 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.setAttribute('disabled', '');
 
     const flash = document.getElementById('contactFlash');
-    flash.classList.add('is-danger');
-    flash.innerHTML = 'An error occurred verifying your captcha! Please reload and try again later.';
+    showFlash(
+      flash,
+      'An error occurred verifying your captcha! Please reload and try again later.',
+      'is-danger'
+    );
   });
 
   const form = document.getElementById('contactForm');

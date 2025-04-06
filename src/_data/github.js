@@ -13,8 +13,6 @@ export const fetchOptions = {
 export default async function () {
   try {
     let url = 'https://api.github.com/users/rlperez/repos';
-
-    // returning promise
     const repos = await Fetch(url, fetchOptions);
 
     return repos;
