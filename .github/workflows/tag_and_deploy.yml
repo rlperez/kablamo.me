@@ -35,7 +35,7 @@ jobs:
               sudo apt install jq
           fi
 
-          # Get the latest Git tag
+          curr_version=$(jq ".version" package.json)
           latest_tag=$(git describe --abbrev=0 --tags)
 
           echo "Current version: $curr_version"
@@ -47,7 +47,6 @@ jobs:
             exit 1
           fi
 
-          curr_version=$(jq ".version" package.json)
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git tag -a v$curr_version -m "Version $curr_version"
