@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-tags: true
       - uses: oven-sh/setup-bun@v2
       - name: Install Vercel
         run: bun install -g vercel@latest
@@ -34,7 +36,7 @@ jobs:
           fi
 
           # Get the latest Git tag
-          latest_tag=$(git describe --tags --abbrev=0)
+          latest_tag=$(git describe --abbrev=0 --tags)
 
           echo "Current version: $curr_version"
           echo "Latest Git tag: $latest_tag"
