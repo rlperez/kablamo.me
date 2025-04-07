@@ -16,7 +16,7 @@ jobs:
   Deploy-Production:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-tags: true
       - uses: oven-sh/setup-bun@v2
@@ -35,7 +35,9 @@ jobs:
               sudo apt install jq
           fi
 
-          curr_version=$(jq ".version" package.json)
+          git fetch --tags
+
+          curr_version=$(jq -r ".version" package.json)
           latest_tag=$(git describe --abbrev=0 --tags)
 
           echo "Current version: $curr_version"
