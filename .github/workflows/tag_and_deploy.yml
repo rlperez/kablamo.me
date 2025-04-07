@@ -36,7 +36,6 @@ jobs:
           fi
 
           git fetch --tags
-
           curr_version=$(jq -r ".version" package.json)
           latest_tag=$(git describe --abbrev=0 --tags)
 
