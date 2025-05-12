@@ -16,16 +16,15 @@ jobs:
   Deploy-Production:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
       - uses: oven-sh/setup-bun@v2
       - name: Install Vercel
         run: bun install -g vercel@latest
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-      - name: Build Project Artifacts
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Tag Build
         run: |
           if ! which jq &> /dev/null; then
@@ -33,10 +32,26 @@ jobs:
               sudo apt install jq
           fi
 
-          curr_version=$(jq ".version" package.json)
+          git fetch --tags
+          curr_version=$(jq -r ".version" package.json)
+          latest_tag=$(git describe --abbrev=0 --tags)
+
+          echo "Current version: $curr_version"
+          echo "Latest Git tag: $latest_tag"
+
+          # If the current version matches the last tag, fail the build
+          if [ "$curr_version" == "$latest_tag" ]; then
+            echo "Error: The version in package.json matches the latest tag. Please increment the version to deploy."
+            exit 1
+          fi
+
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git tag -a v$curr_version -m "Version $curr_version"
           git push origin v$curr_version
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
