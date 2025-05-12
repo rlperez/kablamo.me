@@ -1,6 +1,6 @@
 {
   "name": "eleventy-excellent",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Personal developer blog based on the eleventy-excellent theme.",
   "author": "Rigoberto L. Perez",
   "license": "ISC",
@@ -35,7 +35,7 @@
     "@vercel/analytics": "^1.5.0",
     "@vercel/node": "^5.1.14",
     "@vercel/speed-insights": "^1.2.0",
-    "caniuse-lite": "^1.0.30001712",
+    "caniuse-lite": "^1.0.30001717",
     "hcaptcha": "^0.2.0",
     "highlight.js": "^11.11.1",
     "lite-youtube-embed": "^0.3.3",
