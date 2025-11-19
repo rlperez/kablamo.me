@@ -1,6 +1,6 @@
 {
   "name": "eleventy-excellent",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Personal developer blog based on the eleventy-excellent theme.",
   "author": "Rigoberto L. Perez",
   "license": "ISC",
@@ -30,7 +30,7 @@
     "@11ty/eleventy-plugin-rss": "^2.0.4",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
     "@11ty/eleventy-plugin-webc": "^0.11.2",
-    "@11ty/is-land": "^5.0.0",
+    "@11ty/is-land": "^4.0.1",
     "@hcaptcha/vanilla-hcaptcha": "^1.1.4",
     "@vercel/node": "^5.5.6",
     "@vercel/speed-insights": "^1.2.0",
