@@ -131,6 +131,8 @@ As you can see in the [configuration template](https://github.com/rlperez/home_s
 
 ## Hardware
 
+### PC
+
 - HP EliteDesk 800 G2 DM ([pdf](https://h30434.www3.hp.com/psg/attachments/psg/Business-PC-Workstation-POS/52089/1/HP%20EliteDesk%20800%20G2%20QuickSpecs%20v31.pdf))
   - 4x Intel(R) Core(TM) i5-6500 CPU @ 3.20GHz
   - 16GB RAM
@@ -139,6 +141,8 @@ As you can see in the [configuration template](https://github.com/rlperez/home_s
 Certainly prior to the claimed RAM supply chain issues, these mini PCs were an affordable low power option to build a home server. Especially when you intend to cluster them together. This particular model can be either a 35W or a 65W model. There is a wide range of CPU options from older dual core i3 to a quad core hyper-threaded i7. The chipset used in this machine is available in mini pc form factor but also as an all in one or mini tower. Since I want a compact multi node cluster, I will be using the mini pc form factor.
 
 The particular model I found at my price point, with my NewEgg credits, was the i5-6500 quad core model I have provided the specifications for. This model is also expandable to 32GB RAM if you can find an affordable set of DDR4 SODIMM modules. Right now, mine came with 16GB RAM and the prices for compatible used RAM is a little more than the budget permits at the moment. Should you want 32GB RAM, you may want to buy it already installed if you really need it. Opening the case it looks like the CPU heatsink may need to be pulled to change RAM. If I start hitting limits, my Raspberry Pi 8GB 4B could be added to the cluster until I find a good deal on RAM or another mini PC.
+
+### Network Adapter
 
 - Netgear Nighthawk AXE3000 USB Wireless Network Adapter
   - USB 3.0
