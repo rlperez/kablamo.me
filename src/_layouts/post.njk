@@ -6,7 +6,9 @@ schema: blog
 <article class="region blog" style="--region-space-top: var(--space-xl-2xl)">
   <div class="wrapper flow prose">
     <h1 class="gradient-text">{{ title }}</h1>
-
+    {% if description %}
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">{{ description }}</h2>
+    {% endif %}
     {% if image %}
       <!-- image -->
       {% image image, alt or title, credit, "eager", "feature" %}
@@ -16,8 +18,7 @@ schema: blog
       <!-- date -->
       {% set definedDate = date %} {% include "partials/date.njk" %}
       {%
-        if tags.length >
-        1
+        if tags.length > 1
       %}
         <br />
       {% endif %}
