@@ -25,6 +25,8 @@ import plugins from './src/_config/plugins.js';
 import shortcodes from './src/_config/shortcodes.js';
 import githubRepos from './src/_data/github.js';
 
+import {DateTime} from 'luxon';
+
 export default async function (eleventyConfig) {
   eleventyConfig.addWatchTarget('./src/assets/**/*.{css,js,svg,png,jpeg,jpg}');
   eleventyConfig.addWatchTarget('./src/_includes/**/*.{webc}');
@@ -65,6 +67,17 @@ export default async function (eleventyConfig) {
   // 	--------------------- Library and Data
   eleventyConfig.setLibrary('md', plugins.markdownLib);
   eleventyConfig.addDataExtension('yaml', contents => yaml.load(contents));
+
+  eleventyConfig.addDateParsing(function (dateValue) {
+    const TIME_ZONE = 'America/New_York';
+
+    if (dateValue instanceof Date) {
+      return DateTime.fromJSDate(dateValue, {zone: 'utc'}).setZone(TIME_ZONE, {keepLocalTime: true});
+    } else if (typeof dateValue === 'string') {
+      return DateTime.fromISO(dateValue, {zone: TIME_ZONE});
+    }
+    return DateTime.fromJSDate(dateValue);
+  });
 
   // --------------------- Filters
   eleventyConfig.addFilter('toIsoString', filters.toISOString);
