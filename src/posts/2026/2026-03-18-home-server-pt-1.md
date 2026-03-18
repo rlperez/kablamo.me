@@ -1,7 +1,7 @@
 ---
 title: Home Server Pt. 1
 description: Setting up a home server for containers.
-date: 2026-03-17
+date: 2026-03-18
 draft: false
 tags: ["home server", "containers", "podman", "nomad", "vault", "consul", "fedora server"]
 ---
@@ -150,7 +150,7 @@ Unfortunately, the model I purchased did not come with a WiFi adapter. The chips
 
 Now that the server is configured and ready to handle Nomad jobs I can begin to do real work. One of the first tasks will be to deploy local network DNS such as [CoreDNS](https://coredns.io/). CoreDNS has ad blocking plugins I will add to block ads on all of our home devices.
 
-With Vault, Consul, Nomad, and CoreDNS setup the next steps will be creating Nomad jobs for [Caddy](https://caddyserver.com/) as a reverse proxy server and a source control service (likely [Gitea](https://gitea.io/)).
+With Vault, Consul, Nomad, and CoreDNS setup the next steps will be creating Nomad jobs for [Caddy](https://caddyserver.com/) as a reverse proxy server and a source control service (likely [Gitea](https://gitea.io/)). That would also include adding an image repository and a task runner like [Gitea Runner](https://docs.gitlab.com/runner/) or [Drone](https://www.drone.io/).
 
 There also are some hardware needs. Eventually there will be another good deal on a PC to expand the number of nodes. There is a Raspberry Pi 4B with 8GB RAM not currently in use that could be configured and added to the cluster. Another goal is setting up a small NAS device for the cluster. Eventually, when I run the ethernet lines for the closet these computers will reside in I will need to add a small network switch as well.
 
