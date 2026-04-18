@@ -1,7 +1,7 @@
 export const url = (() => {
   switch (process.env.STAGE) {
     case 'prod':
-      return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+      return `https://kablamo.me`;
     case 'staging':
       return `https://${process.env.VERCEL_URL}`;
     case 'dev':
@@ -11,7 +11,7 @@ export const url = (() => {
 export const siteName = 'Kablamo!';
 export const siteDescription =
   'A personal blog dedicated to sharing my programming projects, examples, news, and other oddities in technology.';
-export const siteType = 'Person'; // schema
+export const siteType = 'Person';
 export const locale = 'en_EN';
 export const lang = 'en';
 export const skipContent = 'Skip to content';
