@@ -2,7 +2,7 @@
 
 ## Theme
 
-This blog is based on the theme (Eleventy Excellent)[https://github.com/madrilene/eleventy-excellent]
+This blog is based on the theme [Eleventy Excellent](https://github.com/madrilene/eleventy-excellent)
 and has been adapted to fit my tastes. A [live preview](https://eleventy-excellent.netlify.app/) of this
 theme is available here and deserves credit for most of the hard UI work.
 
